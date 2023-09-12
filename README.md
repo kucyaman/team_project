@@ -1,4 +1,4 @@
-## 実行コマンド
+## カップラーメン作ってる間に環境構築してください 🍜
 
 ```
 git clone git@github.com:k-suke39/docker_rails_postgresql.git
