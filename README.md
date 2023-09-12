@@ -2,7 +2,6 @@
 
 ```
 git clone git@github.com:k-suke39/docker_rails_postgresql.git
-
 ```
 
 ```
@@ -22,7 +21,6 @@ docker-compose up --build
 ```
 
 ```
-
 # http://localhost:8000/ でログイン
 ```
 
