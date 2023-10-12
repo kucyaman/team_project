@@ -89,4 +89,6 @@ production:
   <<: *default
   adapter: postgresql
   encoding: unicode
+  database: loguma_db
+  username: loguma_db_user
   url: <%= ENV['DATABASE_URL'] %>
