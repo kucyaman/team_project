@@ -1,0 +1,2 @@
+module CurriculmLogsHelper
+end
