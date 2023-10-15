@@ -104,6 +104,8 @@ GEM
       reline (>= 0.3.1)
     erubi (1.12.0)
     execjs (2.9.1)
+    faker (3.2.1)
+      i18n (>= 1.8.11, < 2)
     faraday (2.7.11)
       base64
       faraday-net_http (>= 2.0, < 3.1)
@@ -252,6 +254,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    seed-fu (2.3.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -310,6 +315,7 @@ DEPENDENCIES
   capybara
   carrierwave (~> 3.0)
   debug
+  faker
   importmap-rails
   jbuilder
   jquery-rails
@@ -320,6 +326,7 @@ DEPENDENCIES
   rails (~> 7.0.7)
   ransack
   sass-rails (>= 6)
+  seed-fu
   selenium-webdriver
   sorcery
   sprockets-rails
