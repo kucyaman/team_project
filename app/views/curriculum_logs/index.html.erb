@@ -1,2 +1,21 @@
-<h1>CurriculumLogs#index</h1>
-<p>Find me in app/views/curriculum_logs/index.html.erb</p>
+<div class="box-body table-responsive no-padding">
+  <table class="table table-hover">
+      
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Curriculum Name</th>
+        <th>Chapter Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @curriculum_logs.each do |curriculum_log| %>
+        <tr>
+          <td><%= curriculum_log.hour %>h<%= curriculum_log.minutes %>m</td>
+          <td><%= curriculum_log.curriculum.name %></td>
+          <td><%= curriculum_log.chapter.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
