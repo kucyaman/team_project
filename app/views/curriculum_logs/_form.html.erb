@@ -1,0 +1,33 @@
+<div class="card center-block w-75 mx-auto">
+  <div class="card-body">
+    <%= form_with model: curriculum_log do |f| %>
+      <%= render 'shared/error_message', object: f.object %>
+      <div class="mb-3">
+      <%= f.label :curriculum_id, "課題" %>
+      <%= f.collection_select :curriculum_id, Curriculum.all, :id, :name, include_blank: "選択して下さい", class: 'form-control' %>
+      <%= f.collection_select :chapter_id, Chapter.all, :id, :name, include_blank: "選択して下さい", class: 'form-control' %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :body %>
+        <%= f.text_area :body, class: 'form-control', rows: 5 %>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+            <%= f.label :hour %>
+            <%= f.text_field :hour, class: 'form-control' %>
+        </div>
+        <div class="col" >
+            <%= f.label :minutes %>
+            <%= f.text_field :minutes, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="text-center">
+        <%= f.submit class: 'btn btn-primary m-4'  %>
+      </div>
+    <% end %>
+  </div>
+</div>
