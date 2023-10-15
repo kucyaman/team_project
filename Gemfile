@@ -45,6 +45,8 @@ gem "bootsnap"
 # Use Sass to process CSS
 gem 'sass-rails', '>= 6'
 
+gem 'jquery-rails'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -75,4 +77,7 @@ gem 'sorcery'
 gem 'bootstrap', '~> 5.0.2'
 gem 'jquery-rails' 
 gem 'jquery-ui-rails'
+gem 'ransack'
+gem 'carrierwave', '~> 3.0'
+gem 'kaminari'
   
