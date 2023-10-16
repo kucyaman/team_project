@@ -33,6 +33,11 @@ class CurriculumLogsController < ApplicationController
   end
 
   def destroy
+    if @curriculum_log.destroy
+      redirect_to curriculum_logs_path, success: '削除が完了しました。'
+    else
+      redirect_to curriculum_logs_path, danger: '削除が失敗しました。'
+    end
   end
 
   private
