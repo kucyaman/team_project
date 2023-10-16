@@ -1,2 +1,14 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<div class="container mt-5">
+  <div class="border border-2 rounded-3 shadow p-3 mb-5 bg-body rounded"> 
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <h1 class="float-left mb-5 text-center mt-5">くちゃまんのプロフィール</h1>
+        <% if @profile.present? %>
+          <%= render 'profiles/profile' %>
+        <% else %>
+          <%= link_to '新しくプロフィールを作成しましょう', new_profile_path  %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
