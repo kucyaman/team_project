@@ -1,21 +1,33 @@
-<div class="box-body table-responsive no-padding">
-  <table class="table table-hover">
-      
-    <thead>
-      <tr>
-        <th>Time</th>
-        <th>Curriculum Name</th>
-        <th>Chapter Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @curriculum_logs.each do |curriculum_log| %>
+<div class="container">
+  <div class="box-body table-responsive no-padding">
+    <table class="table table-hover">
+        
+      <thead>
         <tr>
-          <td><%= curriculum_log.hour %>h<%= curriculum_log.minutes %>m</td>
-          <td><%= curriculum_log.curriculum.name %></td>
-          <td><%= curriculum_log.chapter.name %></td>
+          <th>Time</th>
+          <th>Curriculum Name</th>
+          <th>Chapter Name</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @curriculum_logs.each do |curriculum_log| %>
+          <tr>
+            <td><%= curriculum_log.hour %>h<%= curriculum_log.minutes %>m</td>
+            <td><%= curriculum_log.curriculum.name %></td>
+            <td><%= curriculum_log.chapter.name %></td>
+            <td>
+              <%= link_to edit_curriculum_log_path(curriculum_log), class: 'btn btn-default btn-xs btn-flat' do %>
+                <i class="fa fa-edit"></i> 編集
+              <% end %>
+            </td>
+            <td>
+              <%= link_to curriculum_logs_path, class: 'btn btn-link btn-xs btn-flat', data: { turbo_method: :delete, turbo_confirm: "削除してもよろしいですか？" } do %>
+                <i class="fa fa-trash"></i> 削除
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
