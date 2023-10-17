@@ -82,4 +82,5 @@ gem 'jquery-ui-rails'
 gem 'ransack'
 gem 'carrierwave', '~> 3.0'
 gem 'kaminari'
-  
+gem 'bootstrap5-kaminari-views'
+gem 'byebug'

@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_14_084926) do
     t.string "name", null: false
     t.string "language"
     t.string "introduction"
-    t.string "avatar"
+    t.string "avater"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

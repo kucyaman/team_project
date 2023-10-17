@@ -1,0 +1,15 @@
+      <tbody>
+          <tr>
+            <td><%= curriculum_log.hour %>h<%= curriculum_log.minutes %>m</td>
+            <td><%= curriculum_log.curriculum.name %></td>
+            <td><%= curriculum_log.chapter.name %></td>
+            <td>
+              <%= link_to edit_curriculum_log_path(curriculum_log), class: 'btn btn-default btn-xs btn-flat' do %>
+                <i class="fa fa-edit"></i> 編集
+              <% end %>
+            </td>
+            <td>
+              <%= button_to "削除", curriculum_log_path(curriculum_log), method: :delete, class: 'btn btn-link btn-xs btn-flat', data: { turbo_confirm: "削除してもよろしいですか？" } %>
+            </td>
+          </tr>
+      </tbody>
