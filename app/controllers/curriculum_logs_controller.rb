@@ -18,7 +18,7 @@ class CurriculumLogsController < ApplicationController
   end
 
   def index
-    @curriculum_logs = CurriculumLog.includes(:curriculum, :chapter).where(user_id: current_user.id)
+    @curriculum_logs = CurriculumLog.includes(:curriculum, :chapter).where(user_id: current_user.id).page(params[:page]).per(20)
   end
 
   def edit;end
@@ -33,11 +33,8 @@ class CurriculumLogsController < ApplicationController
   end
 
   def destroy
-    if @curriculum_log.destroy
-      redirect_to curriculum_logs_path, success: '削除が完了しました。'
-    else
-      redirect_to curriculum_logs_path, danger: '削除が失敗しました。'
-    end
+    @curriculum_log.destroy!
+    redirect_to curriculum_logs_path, success: 'ログを削除しました'
   end
 
   private
