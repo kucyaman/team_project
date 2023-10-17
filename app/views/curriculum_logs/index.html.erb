@@ -1,2 +1,29 @@
-<h1>CurriculumLogs#index</h1>
-<p>Find me in app/views/curriculum_logs/index.html.erb</p>
+<div class="container">
+
+  <div class = "text-center my-3">
+    <% if current_user.profile.present? %>
+      <%= link_to profile_path do %>
+        <%= image_tag current_user.profile.avatar, class: 'rounded-circle mr15', width: '100', height: '100' %> 
+      <% end %> 
+    <% else %>
+        <%= link_to profile_path do %>
+          <%= image_tag 'kuchaman.jpeg', class: 'rounded-circle mr15 border border-secondary', size: '100x100' %>  
+        <% end %> 
+    <% end %>  
+  </div>
+  <div class="box-body table-responsive no-padding">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Curriculum Name</th>
+          <th>Chapter Name</th>
+          <th> </th>
+          <th> </th>
+        </tr>
+      </thead>
+      <%= render @curriculum_logs %>
+      <%= paginate @curriculum_logs %>
+    </table>
+  </div>
+</div>

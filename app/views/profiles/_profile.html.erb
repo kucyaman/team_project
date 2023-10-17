@@ -1,0 +1,20 @@
+<div class = "text-center mb-5">
+  <%= image_tag 'kuchaman.jpeg', class: 'rounded-circle mr15 border border-secondary', size: '117x117' %>
+</div>
+<table class="table">
+  <tr>
+    <th scope="row">name</th>
+    <td><%= @profile.name %></td>
+  </tr>
+  <tr>
+    <th scope="row">email</th>
+    <td><%= @user.email %></td>
+  </tr>
+  <tr>
+    <th scope="row">languages</th>
+    <td><%= @profile.language %></td>
+  </tr>
+</table>
+<div class='text-right mt-5'>
+<%= link_to '編集', edit_profile_path, class: 'btn btn-outline-secondary float-right m-3 btn-sm' %>
+</div>

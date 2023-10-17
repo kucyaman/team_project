@@ -64,6 +64,8 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'faker'
+  gem 'seed-fu'
 end
 
 group :test do
@@ -80,4 +82,5 @@ gem 'jquery-ui-rails'
 gem 'ransack'
 gem 'carrierwave', '~> 3.0'
 gem 'kaminari'
-  
+gem 'bootstrap5-kaminari-views'
+gem 'byebug'
