@@ -3,9 +3,9 @@
     <%= form_with model: curriculum_log do |f| %>
       <%= render 'shared/error_message', object: f.object %>
       <div class="mb-3">
-      <%= f.label :curriculum_id, "課題" %>
-      <%= f.collection_select :curriculum_id, Curriculum.all, :id, :name, include_blank: "選択して下さい", class: 'form-control' %>
-      <%= f.collection_select :chapter_id, Chapter.all, :id, :name, include_blank: "選択して下さい", class: 'form-control' %>
+        <%= f.label :curriculum_id, "課題" %>
+        <%= f.collection_select :curriculum_id, @curriculums, :id, :name, include_blank: "選択して下さい", class: 'form-control' %>
+        <%= f.collection_select :chapter_id, @chapters, :id, :name, include_blank: "選択して下さい", class: 'form-control' %>
       </div>
       <div class="mb-3">
         <%= f.label :title %>
@@ -31,3 +31,28 @@
     <% end %>
   </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var curriculumSelect = document.getElementById('curriculum_log_curriculum_id');
+  var chapterSelect = document.getElementById('curriculum_log_chapter_id');
+
+  curriculumSelect.addEventListener('change', function() {
+    var selectedCurriculumId = curriculumSelect.value;
+
+    if (selectedCurriculumId) {
+      fetch(`/chapters/update_chapters?curriculum_id=${selectedCurriculumId}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        chapterSelect.innerHTML = data.options;
+      })
+      .catch(error => console.error('エラー:', error));
+    }
+  });
+});
+</script>
