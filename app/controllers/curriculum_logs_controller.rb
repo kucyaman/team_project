@@ -3,16 +3,20 @@ class CurriculumLogsController < ApplicationController
 
   def new
     @curriculum_log = CurriculumLog.new
-    @chapter = Curriculum.includes(:chapters).all
+    @curriculums = Curriculum.includes(:chapters).all
+    @chapters = Chapter.all
   end
 
   def create
     @curriculum_log = current_user.curriculum_logs.build(curriculum_log_params)
 
     if @curriculum_log.save
-      redirect_to curriculum_logs_path, notice: "ログの作成に成功しました"
+      redirect_to curriculum_logs_path
+      flash[:success] = "ログの作成に成功しました"
     else
       flash.now[:danger] = "ログの作成に失敗しました"
+      @curriculums = Curriculum.includes(:chapters).all
+      @chapters = Chapter.all
       render :new, status: :unprocessable_entity
     end
   end
@@ -21,20 +25,34 @@ class CurriculumLogsController < ApplicationController
     @curriculum_logs = CurriculumLog.includes(:curriculum, :chapter).where(user_id: current_user.id).page(params[:page]).per(20)
   end
 
-  def edit;end
+  def edit
+    @curriculums = Curriculum.includes(:chapters).all
+    @chapters = Chapter.all
+  end
 
   def update
     if @curriculum_log.update(curriculum_log_params)
-      redirect_to curriculum_logs_path, success: 'ログの編集に成功しました'
+      redirect_to curriculum_logs_path
+      flash[:success] = "ログの編集に成功しました"
     else
-      flash.now[:danger] = 'ログの編集に失敗しました'
+      flash.now[:danger] = "ログの編集に失敗しました"
+      @curriculums = Curriculum.includes(:chapters).all
+      @chapters = Chapter.all
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @curriculum_log.destroy!
-    redirect_to curriculum_logs_path, success: 'ログを削除しました'
+    redirect_to curriculum_logs_path, status: :see_other
+    flash[:success] = '削除が完了しました。'
+  end
+
+  def capter_change
+    selected_curriculum_id = params[:curriculum_id]
+    chapters = Chapter.where(curriculum_id: selected_curriculum_id)
+    options = chapters.map { |chapter| "<option value='#{chapter.id}'>#{chapter.name}</option>" }.join
+    render json: { options: options }
   end
 
   private
