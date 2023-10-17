@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resource :profile, only: %i[new show edit update]
   resources :curriculum_logs
+  get 'chapters/update_chapters', to: 'curriculum_logs#capter_change'
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
