@@ -21,7 +21,9 @@
               <% end %>
             </td>
             <td>
-              <%= button_to "削除", curriculum_log_path(curriculum_log), method: :delete, class: 'btn btn-link btn-xs btn-flat', data: { turbo_confirm: "削除してもよろしいですか？" } %>
+              <%= link_to curriculum_logs_path, class: 'btn btn-link btn-xs btn-flat', data: { turbo_method: :delete, turbo_confirm: "削除してもよろしいですか？" } do %>
+                <i class="fa fa-trash"></i> 削除
+              <% end %>
             </td>
           </tr>
         <% end %>
