@@ -10,10 +10,11 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user = current_user
 
-    if @profile.save
-      redirect_to profile_path, success: 'プロフィールが作成されました'
+    if @profile.save  
+      redirect_to profile_path
+      flash[:success]= 'プロフィールが作成されました'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -25,9 +26,11 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update(profile_params)
-      redirect_to profile_path, success: 'プロフィールが更新されました'
+      redirect_to profile_path
+      flash[:success]= 'プロフィールが更新されました'
     else
-      render :edit
+      flash.now[:danger] = 'プロフィールの編集に失敗しました'
+      render :edit, status: :unprocessable_entity
     end
   end
 

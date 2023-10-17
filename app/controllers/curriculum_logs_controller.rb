@@ -44,9 +44,6 @@ class CurriculumLogsController < ApplicationController
 
   def destroy
     @curriculum_log.destroy!
-<<<<<<< Updated upstream
-    redirect_to curriculum_logs_path, success: 'ログを削除しました'
-=======
     redirect_to curriculum_logs_path, status: :see_other
     flash[:success] = '削除が完了しました。'
   end
@@ -56,7 +53,6 @@ class CurriculumLogsController < ApplicationController
     chapters = Chapter.where(curriculum_id: selected_curriculum_id)
     options = chapters.map { |chapter| "<option value='#{chapter.id}'>#{chapter.name}</option>" }.join
     render json: { options: options }
->>>>>>> Stashed changes
   end
 
   private
