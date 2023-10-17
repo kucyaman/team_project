@@ -1,14 +1,14 @@
 <div class="container">
-
   <div class = "text-center my-3">
-    <% if current_user.profile.present? %>
+    <h1><%= current_user.profile.name %>'s logs</h1> 
+    <% if current_user.profile.avatar.present? %>
       <%= link_to profile_path do %>
-        <%= image_tag current_user.profile.avatar, class: 'rounded-circle mr15', width: '100', height: '100' %> 
+        <%= image_tag current_user.profile.avatar.url, class: 'rounded-circle mr15', width: '100', height: '100' %> 
       <% end %> 
     <% else %>
-        <%= link_to profile_path do %>
-          <%= image_tag 'kuchaman.jpeg', class: 'rounded-circle mr15 border border-secondary', size: '100x100' %>  
-        <% end %> 
+      <%= link_to profile_path do %>
+        <%= image_tag 'kuchaman.jpeg', class: 'rounded-circle mr15', width: '100', height: '100' %> 
+      <% end %> 
     <% end %>  
   </div>
   <div class="box-body table-responsive no-padding">
@@ -23,7 +23,7 @@
         </tr>
       </thead>
       <%= render @curriculum_logs %>
-      <%= paginate @curriculum_logs %>
     </table>
+    <%= paginate @curriculum_logs, theme: 'bootstrap-5' %>
   </div>
 </div>

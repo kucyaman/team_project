@@ -3,6 +3,13 @@
     <div class="col-md-4 col-lg-4 mx-auto">
       <h1 class="h3 mb-3 fw-normal text-center pt-5">ユーザー登録</h1>
       <%= form_with model: @user do |f| %>
+        <%= f.fields_for :profile do |profile_form| %>
+          <div class="mb-3">
+            <%= profile_form.label :name, class: "form-label" %>
+            <%= profile_form.text_field :name, class: "form-control" %>
+          </div>
+          <!-- You can add more profile fields here if needed -->
+        <% end %>
         <div class="mb-3">
           <%= f.label :email, class: "form-label" %>
           <%= f.email_field :email, class: "form-control" %>
@@ -15,6 +22,7 @@
           <%= f.label :password_confirmation, class: "form-label" %>
           <%= f.password_field :password_confirmation, class: "form-control" %>
         </div>
+
         <div class='text-center'>
         <%= f.submit "登録", class: "btn btn-secondary" %>
         </div>
