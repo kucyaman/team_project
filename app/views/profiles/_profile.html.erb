@@ -1,5 +1,5 @@
 <div class = "text-center mb-5">
-  <%= image_tag 'kuchaman.jpeg', class: 'rounded-circle mr15 border border-secondary', size: '117x117' %>
+  <%= image_tag @profile.avatar.url, class: 'rounded-circle mr15 border border-secondary', size: '117x117' %>
 </div>
 <table class="table">
   <tr>
@@ -13,6 +13,10 @@
   <tr>
     <th scope="row">languages</th>
     <td><%= @profile.language %></td>
+  </tr>
+  <tr>
+    <th scope="row">introduction</th>
+    <td><%= @profile.introduction %></td>
   </tr>
 </table>
 <div class='text-right mt-5'>

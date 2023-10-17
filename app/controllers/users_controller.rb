@@ -9,8 +9,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to login_path
+      flash[:success]= 'サインアップしました'
     else
-      render :new
+      flash.now[:danger] = 'サインアップに失敗しました'
+      render :new, status: :unprocessable_entity
     end
   end
 

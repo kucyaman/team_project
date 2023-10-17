@@ -4,6 +4,7 @@
       <h1 class="h3 mb-3 fw-normal text-center pt-5">ユーザー登録</h1>
       <%= form_with model: @user do |f| %>
         <%= f.fields_for :profile do |profile_form| %>
+          <%= render 'shared/error_message', object: f.object %>
           <div class="mb-3">
             <%= profile_form.label :name, class: "form-label" %>
             <%= profile_form.text_field :name, class: "form-control" %>

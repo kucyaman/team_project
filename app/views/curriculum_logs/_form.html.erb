@@ -1,34 +1,41 @@
-<div class="card center-block w-75 mx-auto">
-  <div class="card-body">
-    <%= form_with model: curriculum_log do |f| %>
-      <%= render 'shared/error_message', object: f.object %>
-      <div class="mb-3">
-        <%= f.label :curriculum_id, "課題" %>
-        <%= f.collection_select :curriculum_id, @curriculums, :id, :name, include_blank: "選択して下さい", class: 'form-control' %>
-        <%= f.collection_select :chapter_id, @chapters, :id, :name, include_blank: "選択して下さい", class: 'form-control' %>
-      </div>
-      <div class="mb-3">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: 'form-control' %>
-      </div>
-      <div class="mb-3">
-        <%= f.label :body %>
-        <%= f.text_area :body, class: 'form-control', rows: 5 %>
-      </div>
-      <div class="row mb-3">
-        <div class="col">
-            <%= f.label :hour %>
-            <%= f.text_field :hour, class: 'form-control' %>
+<div class = "conteiner">
+  <div class="col-md-10 offset-md-1">
+    <div class="border border-2 rounded-3 shadow p-3 mb-5 mt-5 bg-body rounded">
+      <div class="row">
+        <div class="col-lg-7 mx-auto">
+          <div class = "text-center mt-5">
+            <%= form_with model: curriculum_log do |f| %>
+              <%= render 'shared/error_message', object: f.object %>
+              <table class="table">
+                <tr>
+                  <th><%= f.label :curriculum_id, "課題",class: "col-sm-1 col-form-label"%></th>
+                  <td><%= f.collection_select :curriculum_id, @curriculums, :id, :name, include_blank: "選択して下さい", class: 'form-control' %></td>
+                  <td><%= f.collection_select :chapter_id, @chapters, :id, :name, include_blank: "選択して下さい", class: 'form-control' %></td>
+                </tr>
+                  <th><%= f.label :title , class: "col-form-label"%></th>
+                  <td><%= f.text_field :title, class: 'form-control' %></td>
+                </tr>
+                <tr>
+                  <th><%= f.label :body , class: "col-sm-2 col-form-label"%></th>
+                  <td><%= f.text_area :body, class: 'form-control' %></td>
+                </tr>
+                <div class="container text-center">
+                  <tr>
+                      <th><%= f.text_field :hour, class: 'form-control' %></th>
+                      <td><%= f.label :hour,'h',class: "col-sm-1 col-form-label" %></td>
+                      <th><%= f.text_field :minutes, class: 'form-control' %></th>
+                      <td><%= f.label :minutes,'min',class: "col-sm-2 col-form-label" %></td>
+                  </tr>
+                  </div>
+                  </table>
+                <div class="text-center">
+                  <%= f.submit 'Logをつける',class: 'btn btn-secondary m-4'  %>
+                </div>
+            <% end %>
+          </div>
         </div>
-        <div class="col" >
-            <%= f.label :minutes %>
-            <%= f.text_field :minutes, class: 'form-control' %>
-        </div>
       </div>
-      <div class="text-center">
-        <%= f.submit class: 'btn btn-primary m-4'  %>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>
 
