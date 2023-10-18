@@ -24,7 +24,7 @@ class CurriculumLogsController < ApplicationController
   def index
     @q = CurriculumLog.includes(:curriculum, :chapter)
     .where(user_id: current_user.id)
-    .ransack(params[:q])
+    .ransack(params[:q], distinct: true)
     @curriculum_logs = @q.result.page(params[:page]).per(20)
   end
 
