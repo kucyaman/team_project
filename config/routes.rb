@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   
   get 'chapters/update_chapters', to: 'curriculum_logs#capter_change'
 
+  resources :terms_of_services, only: %i[index]
+  resources :privacies, only: %i[index]
+
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
