@@ -22,7 +22,10 @@ class CurriculumLogsController < ApplicationController
   end
 
   def index
-    @curriculum_logs = CurriculumLog.includes(:curriculum, :chapter).where(user_id: current_user.id).page(params[:page]).per(20)
+    @q = CurriculumLog.includes(:curriculum, :chapter)
+    .where(user_id: current_user.id)
+    .ransack(params[:q])
+    @curriculum_logs = @q.result.page(params[:page]).per(20)
   end
 
   def edit

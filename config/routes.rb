@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   root "home#top"
   resources :users, only: %i[new create]
   resource :profile, only: %i[new show edit update]
-  resources :curriculum_logs
+  resources :curriculum_logs do
+    collection do
+      get 'search'
+    end
+  end
+  
   get 'chapters/update_chapters', to: 'curriculum_logs#capter_change'
 
   get 'login', to: 'user_sessions#new'
