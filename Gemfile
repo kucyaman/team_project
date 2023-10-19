@@ -66,6 +66,7 @@ group :development do
   # gem "spring"
   gem 'faker'
   gem 'seed-fu'
+  gem 'letter_opener_web'
 end
 
 group :test do
@@ -76,6 +77,7 @@ group :test do
 end
 
 gem 'sorcery'
+gem 'config'
 gem 'bootstrap', '~> 5.0.2'
 gem 'jquery-rails' 
 gem 'jquery-ui-rails'
@@ -84,3 +86,4 @@ gem 'carrierwave', '~> 3.0'
 gem 'kaminari'
 gem 'bootstrap5-kaminari-views'
 gem 'byebug'
+
