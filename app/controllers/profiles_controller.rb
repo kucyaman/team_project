@@ -32,7 +32,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-
   private
 
   def set_profile
