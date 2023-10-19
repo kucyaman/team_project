@@ -23,13 +23,15 @@ ja:
         minutes: 分
         curriculum_id: 課題
         chapter_id: チャプター
+        curriculum: 課題
+        chapter: チャプター
       curriculum:
         name: 課題
       chapter:
         name: チャプター
-    helpers:
-      label:
-        curriculum_id: 課題
-        chapter_id: 章
-        email: メールアドレス
-        password: パスワード
+  helpers:
+    label:
+      curriculum_id: 課題
+      chapter_id: チャプター
+      email: メールアドレス
+      password: パスワード
