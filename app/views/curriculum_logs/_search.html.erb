@@ -1,0 +1,6 @@
+<%= search_form_for @q, distinct: true, html: { class: "d-flex align-items-center" } do |f| %>
+  <%= f.search_field :curriculum_name_cont, class: "form-control me-2", placeholder: "課題" %>
+  <%= f.search_field :chapter_name_cont, class: "form-control me-2", placeholder: "チャプター" %>
+  <%= f.search_field :title_cont, class: "form-control me-2", placeholder: "タイトル" %>
+  <%= f.submit '検索', class: 'btn btn-outline-success' %>
+<% end %>

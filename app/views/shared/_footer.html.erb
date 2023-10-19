@@ -2,8 +2,12 @@
   <div class='container'>
     <div class='row'>
       <div class='col-sm-6 col-12'>
-        <div class='copyright'>
+        <div class='copyright text-center'>
           <p>Copyright © Loguma</p>
+          <div class='d-flex justify-content-between'>
+            <%= link_to '利用規約', terms_of_services_path, class:'mb-4' %>
+            <%= link_to 'プライバシーポリシー', privacies_path, class:'mb-4' %>
+        </div>
         </div>
       </div>
     </div>
