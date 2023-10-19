@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cantata+One&display=swap');
+
+
 body {
   font-family: 'Zen Maru Gothic', serif;
 }
@@ -10,3 +14,8 @@ body {
   font-family: serif;
 }
 
+.top {
+  font-size: 90px;
+  font-family: 'Cantata One', serif;
+  display: flex;
+}
