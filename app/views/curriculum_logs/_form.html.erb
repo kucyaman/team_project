@@ -2,32 +2,47 @@
   <div class="col-md-10 offset-md-1">
     <div class="border border-2 rounded-3 shadow p-3 mb-5 mt-5 bg-body rounded">
       <div class="row">
-        <div class="col-lg-7 mx-auto">
+        <div class="col-lg-8 mx-auto">
           <div class = "text-center mt-5">
             <%= form_with model: curriculum_log do |f| %>
               <%= render 'shared/error_message', object: f.object %>
-              <table class="table">
+              <table class="table table-borderless">
+                <div class="container text-center">
                 <tr>
-                  <th><%= f.label :curriculum_id, "課題",class: "col-sm-1 col-form-label"%></th>
+                  <th><%= f.label :curriculum_id,class: "col-form-label"%></th>
                   <td><%= f.collection_select :curriculum_id, @curriculums, :id, :name, include_blank: "選択して下さい", class: 'form-control' %></td>
                   <td><%= f.collection_select :chapter_id, @chapters, :id, :name, include_blank: "選択して下さい", class: 'form-control' %></td>
                 </tr>
+                <tr>
                   <th><%= f.label :title , class: "col-form-label"%></th>
-                  <td><%= f.text_field :title, class: 'form-control' %></td>
+                  <td colspan="2"><%= f.text_field :title, class: 'form-control' %></td>
                 </tr>
                 <tr>
-                  <th><%= f.label :body , class: "col-sm-2 col-form-label"%></th>
-                  <td><%= f.text_area :body, class: 'form-control' %></td>
+                  <th><%= f.label :body , class: "col-form-label"%></th>
+                  <td colspan= "2"><%= f.text_area :body, class: 'form-control' %></td>
                 </tr>
-                <div class="container text-center">
-                  <tr>
-                      <th><%= f.text_field :hour, class: 'form-control' %></th>
-                      <td><%= f.label :hour,'h',class: "col-sm-1 col-form-label" %></td>
-                      <th><%= f.text_field :minutes, class: 'form-control' %></th>
-                      <td><%= f.label :minutes,'min',class: "col-sm-2 col-form-label" %></td>
-                  </tr>
-                  </div>
+                </div>
+                <div class="container">
+                  <div class = "row justify-content-center">
+                  <table class="table table-borderless w-50">
+                    <tr>
+                      <th>
+                        <%= f.text_field :hour, class: 'form-control' %>
+                      </th>
+                      <td>
+                        <%= f.label :hour, 'h', class: "col-form-label" %>
+                      </td>
+                      <th>
+                        <%= f.text_field :minutes, class: 'form-control' %>
+                      </th>
+                      <td>
+                        <%= f.label :minutes, 'min', class: "col-form-label" %>
+                      </td>
+                    </tr>
                   </table>
+                  </div>
+                </div>
+                </table>
                 <div class="text-center">
                   <%= f.submit 'Logをつける',class: 'btn btn-secondary m-4'  %>
                 </div>
