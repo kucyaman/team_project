@@ -11,7 +11,7 @@
               <div class="mt-3 mb-3 text-center">
               <%= image_tag @profile.avatar.url, id: 'preview', class: 'rounded-circle mr15',size: '150x150' %>
               </div> 
-              <table class="table">
+              <table class="table table-borderless">
                 <tr> 
                   <th><%= f.label :name %></th>
                   <td><%= f.text_field :name, class: 'form-control' %></td>

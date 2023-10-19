@@ -1,0 +1,35 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      profile: プロフィール
+      curriculum_log: ログ
+      curriculum: カリキュラム
+      chapter: チャプター
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+      profile:
+        name: 名前
+        language: 言語
+        introduction: ひとこと
+        avatar: アイコン
+      curriculum_log:
+        title: タイトル
+        body: 本文
+        hour: 時間
+        minutes: 分
+        curriculum_id: 課題
+        chapter_id: チャプター
+      curriculum:
+        name: 課題
+      chapter:
+        name: チャプター
+    helpers:
+      label:
+        curriculum_id: 課題
+        chapter_id: 章
+        email: メールアドレス
+        password: パスワード
