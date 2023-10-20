@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cantata+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap');
 
 
 body {
@@ -18,4 +19,8 @@ body {
   font-size: 90px;
   font-family: 'Cantata One', serif;
   display: flex;
+}
+
+h2 {
+  font-family: 'Noto Serif JP', serif;
 }
