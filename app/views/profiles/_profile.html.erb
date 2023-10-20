@@ -3,6 +3,10 @@
 </div>
 <table class="table">
   <tr>
+    <th>total</th>
+    <td><%= current_user.hours_with_minutes %></td>
+  </tr>
+  <tr>
     <th scope="row">name</th>
     <td><%= @profile.name %></td>
   </tr>
