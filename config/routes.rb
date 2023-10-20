@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
 
   get 'chapters/update_chapters', to: 'curriculum_logs#capter_change'
+  get 'curriculums/update_curriculums', to: 'curriculum_logs#curriculum_change'
 
   resources :terms_of_services, only: %i[index]
   resources :privacies, only: %i[index]
