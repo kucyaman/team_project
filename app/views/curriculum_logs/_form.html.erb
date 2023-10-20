@@ -76,5 +76,29 @@ document.addEventListener('DOMContentLoaded', function() {
       .catch(error => console.error('エラー:', error));
     }
   });
+
+  chapterSelect.addEventListener('change', function() {
+    var selectedChapterId = chapterSelect.value;
+
+    if (selectedChapterId) {
+      fetch(`/curriculums/update_curriculums?chapter_id=${selectedChapterId}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        var selectedValue = data.selected_value;
+        for (var i = 0; i < curriculumSelect.options.length; i++) {
+          if (curriculumSelect.options[i].value == selectedValue) {
+            curriculumSelect.selectedIndex = i;
+            break;
+          }
+        }
+      })
+      .catch(error => console.error('エラー:', error));
+    }
+  });
 });
 </script>
