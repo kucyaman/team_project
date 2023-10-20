@@ -12,4 +12,12 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :email, presence: true, uniqueness: true
   validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
+
+  def hours_with_minutes
+    total_hours = curriculum_logs.sum("(hour + (minutes / 60))")
+    total_minutes = curriculum_logs.sum("(minutes % 60)")
+    total_hours += total_minutes / 60
+    total_minutes = total_minutes % 60
+    "#{total_hours}時間#{total_minutes}分"
+  end
 end
