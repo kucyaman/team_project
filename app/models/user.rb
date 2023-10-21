@@ -18,6 +18,7 @@ class User < ApplicationRecord
     total_minutes = curriculum_logs.sum("(minutes % 60)")
     total_hours += total_minutes / 60
     total_minutes = total_minutes % 60
-    "#{total_hours}時間#{total_minutes}分"
+    [total_hours, total_minutes]
   end
+  
 end
