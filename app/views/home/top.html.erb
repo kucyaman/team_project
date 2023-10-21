@@ -1,10 +1,51 @@
 <div class = "container mt-5">
   <div class = "row justify-content-center">
-  <div class="d-flex flex-column justify-content-center" style="width: 379px; height: 154px;">
-        <h1 class = "top">Loguma<h1>
+      <div class="d-flex flex-column justify-content-center me-5 mt-5 col-md-8" style="width: 379px; height: 154px;">
+        <div class ="me-5">
+          <h1 class = "top">Loguma<h1>
+        </div>
+        <div class = "text-center mt-5">
+          <%=link_to 'Logをつける',new_user_path, class: "btn btn-secondary btn-lg" %>
+        </div>
       </div>
-      <div class= "col-5">
+      <div class= "col-5 ms-5">
         <%= image_tag 'book_top.png',size: "552x338",class: "rounded-3"%>
       </div>
   </div>
 </div>
+
+<!-- 説明セクション -->
+<section id ="content">
+<div class = "container text-center">
+  <div class = "row mx-auto col-10">
+    <div class = "col-md-8 mx-auto text-center">
+      <h2 class = "mb-5 title">Logumaで、ログをつける。身につける。</h2>
+    </div>
+  </div>
+</div>
+
+  <div class = "row g-4  mx-auto col-10">
+    <div class = "col-lg-4 col-sm-6 mx-auto">
+      <div class ="content card-effect text-center">
+        <h4 class = "mt-2 mb-4">課題に沿ったログをつける</h4>
+        <p>RUNTEQの課題に特化したログだから、</p>
+        <p>記録しやすい、管理しやすいを実現。</p>
+      </div>
+    </div>
+    <div class = "col-lg-4 col-sm-6 mx-auto">
+      <div class ="content card-effect text-center">
+        <h4 class = "mt-2 mb-4">学習時間を記録できる</h4>
+        <p>ログごとに時間を記録。</p>
+        <p>ログ１つにかかった時間が、すぐわかる。</p>
+      </div>
+    </div>
+    <div class = "col-lg-4 col-sm-6 mx-auto">
+      <div class ="content card-effect text-center">
+        <h4 class = "mt-2 mb-4">GitHubでも</h4>
+        <p>GitHubのアカウントでもログイン可能。</p>
+        <p>ひょっとしたら草が生える。</p>
+      </div>
+    </div>
+
+  </div>
+</section>

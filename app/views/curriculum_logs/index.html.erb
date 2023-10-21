@@ -4,6 +4,7 @@
       <%= render 'search', q: @q, url: curriculum_logs_path %>
     </div>
   </div>
+  <p><strong>total: <%= current_user.hours_with_minutes %></strong></p>
   <div class="text-center my-3">
     <h1><%= current_user.profile.name %>'s logs</h1> 
     <% if current_user.profile.avatar.present? %>
@@ -31,4 +32,4 @@
     </table>
     <%= paginate @curriculum_logs, theme: 'bootstrap-5' %>
   </div>
-<div>
+</div>

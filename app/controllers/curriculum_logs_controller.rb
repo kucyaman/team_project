@@ -58,6 +58,12 @@ class CurriculumLogsController < ApplicationController
     render json: { options: options }
   end
 
+  def curriculum_change
+    selected_chapter_id = params[:chapter_id]
+    curriculum = Curriculum.includes(:chapters).find_by(chapters: { id: selected_chapter_id })
+    render json: { selected_value: curriculum.id }
+  end
+
   private
 
   def set_curriculum_log
