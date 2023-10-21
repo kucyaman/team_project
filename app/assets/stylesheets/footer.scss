@@ -1,18 +1,8 @@
-/* HTMLとBodyの最小高さを100%に設定 */
-html, body {
-  min-height: 100%;
-}
-
-/* Bodyにpadding-bottomを追加してfooterの場所を空ける */
-body {
-  padding-bottom: 60px; /* フッターの高さに合わせて調整 */
-}
-
-/* フッターを下部に固定 */
-.footer-bottom {
-  position: fixed;
+footer {
+  display: block;
   width: 100%;
   bottom: 0;
-  height: 60px; /* フッターの高さを設定、必要に応じて調整してください */
-  background-color: #f8f9fa; /* フッターの背景色を設定、必要に応じて調整してください */
+  height: 120px; 
+  background-color: #f8f9fa; 
+  transition: transform 0.3s; /* スムーズな表示切り替えを追加 */
 }
