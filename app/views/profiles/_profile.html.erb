@@ -4,7 +4,25 @@
 <table class="table">
   <tr>
     <th>total</th>
-    <td><%= current_user.hours_with_minutes %></td>
+    <td><%= current_user.hours_with_minutes[0] %> 時間 <%= current_user.hours_with_minutes[1] %> 分</td>
+  </tr>
+  <tr>
+    <th>進捗</th>
+    <td><div class="progress" role="progressbar" aria-label="進捗バー" aria-valuemin="0" aria-valuemax="1000">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: <%= (current_user.hours_with_minutes[0] / 1000.0) * 100 %>%;">
+      <%= (current_user.hours_with_minutes[0] / 1000.0 * 100).to_i %>%
+    </div>
+  </div>
+    </td>
+  </tr>
+  <tr>
+    <th>1000時間達成まで</th>
+    <td>  <% if current_user.hours_with_minutes[0] < 1000 %>
+    <p><strong><%= 1000 - current_user.hours_with_minutes[0] %> 時間 <%= 60 - current_user.hours_with_minutes[1] %> 分</strong></p>
+    <% else %>
+    <p><strong>1000時間達成しました</strong></p>
+    <% end %>
+  </td>
   </tr>
   <tr>
     <th scope="row">name</th>

@@ -4,7 +4,14 @@
       <%= render 'search', q: @q, url: curriculum_logs_path %>
     </div>
   </div>
-  <p><strong>total: <%= current_user.hours_with_minutes %></strong></p>
+  <p><strong>total: <%= current_user.hours_with_minutes[0] %> 時間 <%= current_user.hours_with_minutes[1] %> 分</strong></p>
+  <% if current_user.hours_with_minutes[0] < 1000 %>
+  <p><strong>1000時間達成まで<%= 1000 - current_user.hours_with_minutes[0] %> 時間 <%= 60 - current_user.hours_with_minutes[1] %> 分</strong></p>
+  <% else %>
+  <p><strong>おめでとうございます！達成しました！</strong></p>
+  <% end %>
+
+
   <div class="text-center my-3">
     <h1><%= current_user.profile.name %>'s logs</h1> 
     <% if current_user.profile.avatar.present? %>
