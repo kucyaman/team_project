@@ -1,9 +1,10 @@
 class User < ApplicationRecord
+  has_many :authentications, dependent: :destroy
   has_many :curriculum_logs, dependent: :destroy
   has_one :profile, dependent: :destroy
   delegate :avatar, to: :profile, prefix: true, allow_nil: true
   accepts_nested_attributes_for :profile
-
+  accepts_nested_attributes_for :authentications
 
   authenticates_with_sorcery!
 

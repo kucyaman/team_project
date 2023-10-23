@@ -1,0 +1,9 @@
+@charset "UTF-8";
+footer {
+  display: block;
+  width: 100%;
+  bottom: 0;
+  height: 120px;
+  background-color: #f8f9fa;
+  transition: transform 0.3s; /* スムーズな表示切り替えを追加 */
+}/*# sourceMappingURL=footer.css.map */
