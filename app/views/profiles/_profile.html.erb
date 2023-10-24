@@ -4,7 +4,7 @@
 <table class="table">
   <tr>
     <th>total</th>
-    <td><%= current_user.hours_with_minutes[0] %> 時間 <%= current_user.hours_with_minutes[1] %> 分</td>
+    <td><%= total_study_time(current_user) %></td>
   </tr>
   <tr>
     <th>進捗</th>
@@ -17,12 +17,7 @@
   </tr>
   <tr>
     <th>1000時間達成まで</th>
-    <td>  <% if current_user.hours_with_minutes[0] < 1000 %>
-    <p><strong><%= 1000 - current_user.hours_with_minutes[0] %> 時間 <%= 60 - current_user.hours_with_minutes[1] %> 分</strong></p>
-    <% else %>
-    <p><strong>1000時間達成しました</strong></p>
-    <% end %>
-  </td>
+    <td><%= remaining_time_to_1000_hours(current_user) %></td>
   </tr>
   <tr>
     <th scope="row">name</th>
