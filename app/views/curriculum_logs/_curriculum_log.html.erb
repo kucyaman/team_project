@@ -1,18 +1,20 @@
-<tbody>
-    <tr>
-      <td>
+<tbody class="border border-2 rounded-3 shadow p-3 mb-5 bg-body rounded">
+    <tr class = 'g-3 rounded-3'>
+      <td style="width:10%">
         <span class="me-1"><%= curriculum_log.hour %>h</span>
         <span><%= curriculum_log.minutes %>m</span>
       </td>
-      <td><%= curriculum_log.curriculum.name %></td>
-      <td><%= curriculum_log.chapter.name %></td>
-      <td><%= curriculum_log.title %></td>
+      <td style="width:20%"><%= curriculum_log.curriculum.name %></td>
+      <td style="width:20%"><%= curriculum_log.chapter.name %></td>
+      <td style="width:40%"><%= curriculum_log.title %></td>
 
-      <td class="d-flex align-items-center">
-          <%= link_to edit_curriculum_log_path(curriculum_log), class: 'btn btn-default btn-xs btn-flat' do %>
-            <i class="fa fa-edit"></i> 編集
+      <td class=" align-items-center d-flex",style="width:5%">
+          <%= link_to edit_curriculum_log_path(curriculum_log) ,style:"color: gray;" do %>
+            <i class="bi bi-pencil-square mt-3"></i>
           <% end %>
-          <%= button_to "削除", curriculum_log_path(curriculum_log), method: :delete, class: 'btn btn-link btn-xs btn-flat', data: { turbo_confirm: "削除してもよろしいですか？" } %>
+          <%= button_to curriculum_log_path(curriculum_log), method: :delete, class: 'btn btn-link btn-xs btn-flat ',style:"color: gray;", data: { turbo_confirm: "削除してもよろしいですか？" } do %>
+            <i class="bi bi-trash2"></i>
+          <% end %>
       </td>
     </tr>
 </tbody>

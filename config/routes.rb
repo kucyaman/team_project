@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get 'password_resets/edit'
   get 'password_resets/update'
 
+  post "oauth/callback", to: "oauths#callback"
+  get "oauth/callback", to: "oauths#callback"
+  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
+
   root "home#top"
   resources :users, only: %i[new create]
   resource :profile, only: %i[new show edit update]
