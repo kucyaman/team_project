@@ -13,6 +13,7 @@ class OauthsController < ApplicationController
     else
       begin
         @user = create_from(provider)
+        @profile = Profile.create(user_id: @user.id, name: @user.remote_name)
         reset_session
         auto_login(@user)
         redirect_to root_path, success: "#{provider.titleize}アカウントでログインしました。"
