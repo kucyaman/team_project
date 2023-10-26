@@ -23,14 +23,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_022702) do
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
   end
 
-  create_table "chapters", force: :cascade do |t|
-    t.string "name", null: false
-    t.bigint "curriculum_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["curriculum_id"], name: "index_chapters_on_curriculum_id"
-  end
-
   create_table "curriculum_logs", force: :cascade do |t|
     t.string "title", null: false
     t.text "body"
@@ -38,10 +30,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_022702) do
     t.integer "minutes", null: false
     t.bigint "user_id", null: false
     t.bigint "curriculum_id", null: false
-    t.bigint "chapter_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["chapter_id"], name: "index_curriculum_logs_on_chapter_id"
     t.index ["curriculum_id"], name: "index_curriculum_logs_on_curriculum_id"
     t.index ["user_id"], name: "index_curriculum_logs_on_user_id"
   end
@@ -74,12 +64,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_022702) do
     t.datetime "reset_password_email_sent_at"
     t.integer "access_count_to_reset_password_page", default: 0
     t.string "remote_avatar_url"
+    t.string "remote_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
-  add_foreign_key "chapters", "curriculums"
-  add_foreign_key "curriculum_logs", "chapters"
   add_foreign_key "curriculum_logs", "curriculums"
   add_foreign_key "curriculum_logs", "users"
   add_foreign_key "profiles", "users"

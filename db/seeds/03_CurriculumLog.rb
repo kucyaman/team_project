@@ -6,6 +6,5 @@
     minutes: 30,
     user_id: 1,
     curriculum_id: 1,
-    chapter_id: 1
   )
 end
