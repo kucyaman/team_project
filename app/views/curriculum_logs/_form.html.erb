@@ -11,7 +11,6 @@
                 <tr>
                   <th><%= f.label :curriculum_id,class: "col-form-label"%></th>
                   <td><%= f.collection_select :curriculum_id, @curriculums, :id, :name, include_blank: "選択して下さい", class: 'form-control' %></td>
-                  <td><%= f.collection_select :chapter_id, @chapters, :id, :name, include_blank: "選択して下さい", class: 'form-control' %></td>
                 </tr>
                 <tr>
                   <th><%= f.label :title , class: "col-form-label"%></th>

@@ -7,7 +7,6 @@ class CreateCurriculumLogs < ActiveRecord::Migration[7.0]
       t.integer :minutes,         null: false
       t.references :user,         null: false, foreign_key: true
       t.references :curriculum,   null: false, foreign_key: true
-      t.references :chapter,      null: false, foreign_key: true
 
       t.timestamps                null: false
     end

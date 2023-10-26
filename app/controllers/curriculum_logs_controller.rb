@@ -3,8 +3,7 @@ class CurriculumLogsController < ApplicationController
 
   def new
     @curriculum_log = CurriculumLog.new
-    @curriculums = Curriculum.includes(:chapters).all
-    @chapters = Chapter.all
+    @curriculums = Curriculum.all
   end
 
   def create
@@ -15,22 +14,20 @@ class CurriculumLogsController < ApplicationController
       flash[:success] = "ログの作成に成功しました"
     else
       flash.now[:danger] = "ログの作成に失敗しました"
-      @curriculums = Curriculum.includes(:chapters).all
-      @chapters = Chapter.all
+      @curriculums = Curriculum.all
       render :new, status: :unprocessable_entity
     end
   end
 
   def index
-    @q = CurriculumLog.includes(:curriculum, :chapter)
+    @q = CurriculumLog.includes(:curriculum)
     .where(user_id: current_user.id)
     .ransack(params[:q], distinct: true)
     @curriculum_logs = @q.result.page(params[:page]).per(20)
   end
 
   def edit
-    @curriculums = Curriculum.includes(:chapters).all
-    @chapters = Chapter.all
+    @curriculums = Curriculum.all
   end
 
   def update
@@ -39,8 +36,7 @@ class CurriculumLogsController < ApplicationController
       flash[:success] = "ログの編集に成功しました"
     else
       flash.now[:danger] = "ログの編集に失敗しました"
-      @curriculums = Curriculum.includes(:chapters).all
-      @chapters = Chapter.all
+      @curriculums = Curriculum.all
       render :edit, status: :unprocessable_entity
     end
   end
@@ -51,19 +47,6 @@ class CurriculumLogsController < ApplicationController
     flash[:success] = '削除が完了しました。'
   end
 
-  def capter_change
-    selected_curriculum_id = params[:curriculum_id]
-    chapters = Chapter.where(curriculum_id: selected_curriculum_id)
-    options = chapters.map { |chapter| "<option value='#{chapter.id}'>#{chapter.name}</option>" }.join
-    render json: { options: options }
-  end
-
-  def curriculum_change
-    selected_chapter_id = params[:chapter_id]
-    curriculum = Curriculum.includes(:chapters).find_by(chapters: { id: selected_chapter_id })
-    render json: { selected_value: curriculum.id }
-  end
-
   private
 
   def set_curriculum_log
@@ -71,6 +54,6 @@ class CurriculumLogsController < ApplicationController
   end
 
   def curriculum_log_params
-    params.require(:curriculum_log).permit(:title, :body, :hour, :minutes, :curriculum_id, :chapter_id)
+    params.require(:curriculum_log).permit(:title, :body, :hour, :minutes, :curriculum_id)
   end
 end
