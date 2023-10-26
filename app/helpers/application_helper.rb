@@ -43,6 +43,8 @@ module ApplicationHelper
   def display_study_time(hours, minutes)
     if hours == 0 && minutes == 0
       "0時間"
+    elsif hours == 0
+      "#{minutes}分"
     else
       "#{hours}時間#{minutes}分"
     end
