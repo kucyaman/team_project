@@ -72,3 +72,16 @@ section {
   border: none !important;
 }
 
+
+.back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%; /* これによりボタンは円形になります */
+    text-align: center;
+    line-height: 50px; /* テキストをボタンの中央に配置します */
+}
+

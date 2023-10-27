@@ -50,7 +50,7 @@
 </section>
 <!-- 注意書きセクション -->
 <div class = "container">
-  <div class = "row text-center">
+  <div class = "row text-center mb-5">
     <p>※本サイトはRUNTEQの課題名を使用していますが、RUNTEQ公式のサービスではありません。</p>
     <p>また、カリキュラムのバージョンによっては使えない受講生の方もいらっしゃいますので予めご了承ください。</p>
   </div>
@@ -68,3 +68,26 @@
       </tbody>
     </table>
 </div>
+<div class="container text-center mt-5 mb-5">
+    <a id="back-to-top" href="#" class="btn btn-secondary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">TOP</a>
+</div>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var backToTopButton = document.getElementById('back-to-top');
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        backToTopButton.onclick = function () {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        };
+    });
+</script>
+
