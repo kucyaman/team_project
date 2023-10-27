@@ -1,4 +1,15 @@
 module ApplicationHelper
+  def daily_study_time(user)
+    today = Date.today
+    curriculum_logs = user.curriculum_logs.where('DATE(created_at) = ?', today)
+
+    total_minutes = curriculum_logs.sum { |log| log.hour * 60 + log.minutes }
+    hours = total_minutes / 60
+    minutes = total_minutes % 60
+
+    display_study_time(hours, minutes)
+  end
+  
   def total_study_time(user)
     total_hours = user.hours_with_minutes[0]
     total_minutes = user.hours_with_minutes[1]
@@ -32,6 +43,8 @@ module ApplicationHelper
   def display_study_time(hours, minutes)
     if hours == 0 && minutes == 0
       "0時間"
+    elsif hours == 0
+      "#{minutes}分"
     else
       "#{hours}時間#{minutes}分"
     end

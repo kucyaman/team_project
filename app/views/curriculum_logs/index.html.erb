@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row mt-1">
     <div class="col-lg-10 offset-lg-1">
-      <%= render 'search', q: @q, url: curriculum_logs_path %>
+    <%= render 'search', q: @q, url: curriculum_logs_path %>
     </div>
-  </div>
-  <p><strong>total:<%= total_study_time(current_user) %></strong></p>
-  <p><strong>1000時間まであと<%= remaining_time_to_1000_hours(current_user) %></strong></p>
-  
-  
+    </div>
+    <p><strong>total:<%= total_study_time(current_user) %></strong></p>
+    <p><strong>1000時間まであと<%= remaining_time_to_1000_hours(current_user) %></strong></p>
+    <p><strong>今日の合計勉強時間: <%= daily_study_time(current_user) %></strong></p>
+    
   <div class="text-center my-3">
     <h1><%= current_user.profile.name %>'s logs</h1> 
     <% if current_user.profile.avatar.present? %>
@@ -36,4 +36,10 @@
       <%= paginate @curriculum_logs, theme: 'bootstrap-5' %>
     </div>
   </div>
+</div>
+
+<div class="text-center title">
+  <%= link_to "https://twitter.com/share?url=https://loguma.onrender.com&text=#{current_user.profile.name}さんの今日の勉強時間は#{daily_study_time(current_user)}なんだくま🐻", title: 'Twitter', target: '_blank' do %>
+    <i class="bi bi-twitter"></i> <!-- Twitterアイコン -->
+  <% end %>
 </div>
