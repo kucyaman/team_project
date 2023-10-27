@@ -3,7 +3,6 @@
   --box-shadow: 0 8px 22px rgba(0,0,0,0.2);
 }
 
-
 .top_image {
   width: 552px;
   height: 338px;
@@ -14,7 +13,6 @@ section {
   padding-top: 120px;
   padding-bottom: 120px;
 }
-
 
 .card-effect {
   box-shadow: var(--box-shadow);
@@ -47,14 +45,26 @@ section {
   z-index: -1; 
 }
 
-
-
 .content:hover::after {
   opacity: 1;
   top: 0;
 }
 
-
 .login {
   height: 100vh;
 }
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px; /* 適当な最大幅を設定 */
+}
+
+.text-ellipsis-body {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px; /* 適当な最大幅を設定 */
+}
+

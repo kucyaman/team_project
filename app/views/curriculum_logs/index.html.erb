@@ -21,20 +21,19 @@
     <% end %>  
   </div>
   <div class = "container">
-
-  <div class="box-body table-responsive no-padding ">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Time</th>
-          <th>Curriculum</th>
-          <th>Title</th>
-          <th> </th>
-        </tr>
-      </thead>
-      <%= render @curriculum_logs %>
-    </table>
-    <%= paginate @curriculum_logs, theme: 'bootstrap-5' %>
+    <div class="box-body table-responsive no-padding ">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Curriculum</th>
+            <th>Title</th>
+            <th> </th>
+          </tr>
+        </thead>
+        <%= render @curriculum_logs %>
+      </table>
+      <%= paginate @curriculum_logs, theme: 'bootstrap-5' %>
+    </div>
   </div>
-</div>
 </div>

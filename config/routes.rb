@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
 
   root "home#top"
+  resources :home, only: %i[index]
   resources :users, only: %i[new create]
   resource :profile, only: %i[new show edit update]
   resources :curriculum_logs do
