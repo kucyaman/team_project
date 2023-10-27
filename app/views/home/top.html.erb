@@ -2,7 +2,7 @@
   <div class = "row justify-content-center">
       <div class="d-flex flex-column justify-content-center me-5 mt-5 col-md-8" style="width: 379px; height: 154px;">
         <div class ="me-5">
-          <h1 class = "top">Loguma<h1>
+          <h1 class = "top">Loguma</h1>
         </div>
         <div class = "text-center mt-5">
           <%=link_to 'Logをつける',new_user_path, class: "btn btn-secondary btn-lg" %>
@@ -46,7 +46,6 @@
         <p>すぐに始められます。</p>
       </div>
     </div>
-
   </div>
 </section>
 <!-- 注意書きセクション -->
@@ -55,4 +54,17 @@
     <p>※本サイトはRUNTEQの課題名を使用していますが、RUNTEQ公式のサービスではありません。</p>
     <p>また、カリキュラムのバージョンによっては使えない受講生の方もいらっしゃいますので予めご了承ください。</p>
   </div>
+</div>
+<div class="container text-center">
+  <h1 class="cantata mb-5">Everyone</h1>
+</div>
+
+<div class="container">
+    <table class="table table-hover">
+      <tbody class="box-body border-2 rounded mb-3">
+        <% @logs.each do |log| %>
+          <%= render partial: 'everyone_log', locals: { log: log } %>
+        <% end %>
+      </tbody>
+    </table>
 </div>

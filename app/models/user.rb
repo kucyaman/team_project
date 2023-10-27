@@ -21,5 +21,24 @@ class User < ApplicationRecord
     total_minutes = total_minutes % 60
     [total_hours, total_minutes]
   end
+
+
+  def self.fetch_user_data
+    logs = CurriculumLog.includes(user: :profile).order('created_at DESC').distinct.limit(10)
+  
+    logs.map do |log|
+      {
+        user_id: log.user.id,
+        profile_name: log.user.profile&.name,
+        log: {
+          title: log.title,
+          body: log.body,
+          hour: log.hour,
+          minutes: log.minutes,
+          created_at: log.created_at
+        }
+      }
+    end
+  end
   
 end
