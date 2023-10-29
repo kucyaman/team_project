@@ -8,10 +8,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto main-nav align-items-center">
           <li class='nav-item'>
-            <%= link_to 'New log', new_curriculum_log_path, class:"nav-link mx-1 px-3 btn btn-outline-secondary" %>
+            <%= link_to 'New log', new_curriculum_log_path, class:"nav-link m-1 px-3 btn btn-outline-secondary" %>
           </li>
           <li class='nav-item'>
-            <%= link_to 'My log 一覧', curriculum_logs_path, class:"nav-link mx-1 px-3 btn btn-outline-secondary" %>
+            <%= link_to 'My log 一覧', curriculum_logs_path, class:"nav-link m-1 px-3 btn btn-outline-secondary" %>
           </li>
           <li class="nav-item dropdown dropdown-slider dropdown-center">
             <%= link_to image_tag(current_user.profile.avatar.url, class:'rounded-circle', size:'45x45', style:"background-color: #ffffff;"), "#", class:'nav-link', 'data-bs-toggle'=>'dropdown', 'aria-haspopup'=>'true', 'aria-expanded'=>'false' %>
