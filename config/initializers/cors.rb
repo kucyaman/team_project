@@ -1,9 +1,7 @@
-Rails.application.config.middleware.insert_before 0, Rack::Cors do
-  allow do
-    origins 'localhost:8000', 'https://loguma.onrender.com'
-
-    resource "*",
-      headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
-  end
+Rails.application.configure do
+  config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => 'https://loguma.onrender.com',
+    'Access-Control-Request-Methods' => '*',
+    'Access-Control-Request-Headers' => '*'
+  }
 end
