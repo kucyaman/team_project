@@ -8,12 +8,7 @@
   </tr>
   <tr>
     <th>進捗</th>
-    <td><div class="progress" role="progressbar" aria-label="進捗バー" aria-valuemin="0" aria-valuemax="1000">
-    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: <%= (current_user.hours_with_minutes[0] / 1000.0) * 100 %>%;">
-      <%= (current_user.hours_with_minutes[0] / 1000.0 * 100).to_i %>%
-    </div>
-  </div>
-    </td>
+    <td><%= render 'shared/progress' %></td>
   </tr>
   <tr>
     <th>1000時間達成まで</th>

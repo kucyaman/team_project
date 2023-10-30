@@ -3,48 +3,40 @@
     <div class="border border-2 rounded-3 shadow p-3 mb-5 mt-5 bg-body rounded">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <div class = "text-center mt-5">
+          <div class = "mt-5">
             <%= form_with model: curriculum_log do |f| %>
               <%= render 'shared/error_message', object: f.object %>
               <table class="table table-borderless">
-                <div class="container text-center">
                 <tr>
-                  <th><%= f.label :curriculum_id,class: "col-form-label"%></th>
-                  <td><%= f.collection_select :curriculum_id, @curriculums, :id, :name, include_blank: "選択して下さい", class: 'form-control' %></td>
+                  <th style="text-align: center;"><%= f.label :curriculum_id,class: "col-form-label"%></th>
+                  <td style="vertical-align: middle;"><%= f.collection_select :curriculum_id, @curriculums, :id, :name, include_blank: "選択して下さい", class: 'form-control' %></td>
                 </tr>
                 <tr>
-                  <th><%= f.label :title , class: "col-form-label"%></th>
-                  <td colspan="2"><%= f.text_field :title, class: 'form-control' %></td>
+                  <th style="text-align: center;"><%= f.label :title , class: "col-form-label"%></th>
+                  <td><%= f.text_field :title, class: 'form-control' %></td>
                 </tr>
                 <tr>
-                  <th><%= f.label :body , class: "col-form-label"%></th>
-                  <td colspan= "2"><%= f.text_area :body, class: 'form-control' %></td>
+                  <th style="text-align: center;"><%= f.label :body , class: "col-form-label"%></th>
+                  <td><%= f.text_area :body, class: 'form-control' %></td>
+                </tr>
+                <tr>
+                  <th></th>
+                  <td>
+                    <div style="display: inline-block;">
+                      <%= f.text_field :hour, class: 'form-control' %></div>
+                    <div style="display: inline-block;">
+                      <%= f.label :hour, 'h', class: "col-form-label" %></div>
+                    <div style="display: inline-block;">
+                      <%= f.text_field :minutes, class: 'form-control' %></div>
+                    <div style="display: inline-block;">
+                      <%= f.label :minutes, 'min', class: "col-form-label" %></div>
+                  </td>
                 </tr>
                 </div>
-                <div class="container">
-                  <div class = "row justify-content-center">
-                  <table class="table table-borderless w-50">
-                    <tr>
-                      <th>
-                        <%= f.text_field :hour, class: 'form-control' %>
-                      </th>
-                      <td>
-                        <%= f.label :hour, 'h', class: "col-form-label" %>
-                      </td>
-                      <th>
-                        <%= f.text_field :minutes, class: 'form-control' %>
-                      </th>
-                      <td>
-                        <%= f.label :minutes, 'min', class: "col-form-label" %>
-                      </td>
-                    </tr>
-                  </table>
-                  </div>
-                </div>
-                </table>
-                <div class="text-center">
-                  <%= f.submit 'Logをつける',class: 'btn btn-secondary m-4'  %>
-                </div>
+              </table>
+              <div class="text-center">
+                <%= f.submit 'Logをつける',class: 'btn btn-secondary m-4'  %>
+              </div>
             <% end %>
           </div>
         </div>
@@ -52,52 +44,3 @@
     </div>
   </div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var curriculumSelect = document.getElementById('curriculum_log_curriculum_id');
-  var chapterSelect = document.getElementById('curriculum_log_chapter_id');
-
-  curriculumSelect.addEventListener('change', function() {
-    var selectedCurriculumId = curriculumSelect.value;
-
-    if (selectedCurriculumId) {
-      fetch(`/chapters/update_chapters?curriculum_id=${selectedCurriculumId}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        chapterSelect.innerHTML = data.options;
-      })
-      .catch(error => console.error('エラー:', error));
-    }
-  });
-
-  chapterSelect.addEventListener('change', function() {
-    var selectedChapterId = chapterSelect.value;
-
-    if (selectedChapterId) {
-      fetch(`/curriculums/update_curriculums?chapter_id=${selectedChapterId}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        var selectedValue = data.selected_value;
-        for (var i = 0; i < curriculumSelect.options.length; i++) {
-          if (curriculumSelect.options[i].value == selectedValue) {
-            curriculumSelect.selectedIndex = i;
-            break;
-          }
-        }
-      })
-      .catch(error => console.error('エラー:', error));
-    }
-  });
-});
-</script>

@@ -7,6 +7,8 @@
   width: 552px;
   height: 338px;
   flex-shrink: 0;
+  max-width: 100%;
+  height: auto;
 }
 
 section {
@@ -50,7 +52,7 @@ section {
   top: 0;
 }
 
-.login {
+.short-window {
   height: 100vh;
 }
 
@@ -72,3 +74,27 @@ section {
   border: none !important;
 }
 
+
+.back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%; /* これによりボタンは円形になります */
+    text-align: center;
+    line-height: 50px; /* テキストをボタンの中央に配置します */
+}
+
+.curriculum-table {
+  border-spacing: 0px 8px;
+}
+
+.bi-twitter:before {
+    content: '𝕏';
+    font-size: 24px;
+    font-family: unset;
+    font-weight: bold;
+    color: black;
+}
