@@ -1,6 +1,21 @@
 <div class="container short-window">
+<h1 class ="text-center mt-5"><%= current_user.profile.name %>'s loguma</h1>
+  <div class ="text-center">
+  <p>today's total: <%= daily_study_time(current_user) %></p>
+  </div>
+
   <!-- 進捗 -->
-  <%= render 'curriculum_logs/progress'%>
+  <div class = 'col-6 mx-auto'>
+    <%= render 'shared/progress'%>
+  </div>
+
+  <div class="row mt-1">    
+  <div class="text-center my-3">     
+      <%= link_to profile_path do %>
+        <%= image_tag current_user.profile.avatar.url, class: 'rounded-circle mr15', width: '100', height: '100' %> 
+      <% end %>
+  </div>
+</div>
 
   <!-- 検索窓 -->
   <div class="col-lg-10 offset-lg-1 mb-3">
@@ -10,8 +25,6 @@
   
       <%= render @curriculum_logs %>
       <%= paginate @curriculum_logs, theme: 'bootstrap-5' %>
-
-      <!-- Twitterアイコン -->
 
       <div class="text-center">
         <%= link_to "https://twitter.com/share?url=https://loguma.onrender.com&text=#{current_user.profile.name}さんの今日の勉強時間は#{daily_study_time(current_user)}なんだくま🐻", title: 'Twitter', target: '_blank' do %>
