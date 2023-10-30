@@ -138,7 +138,7 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.github.key = Rails.application.credentials.dig(:github, :key)
   config.github.secret = Rails.application.credentials.dig(:github, :secret)
-  config.github.callback_url = Settings.sorcery.github.callback_url
+  config.github.callback_url = Rails.application.credentials.dig(:github, :callback_url)
   config.github.user_info_mapping = {email: "email", remote_avatar_url: "avatar_url", remote_name: "login"}
   config.github.scope = "user:email"
   #
