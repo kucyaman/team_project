@@ -5,7 +5,11 @@
           <h1 class = "top">Loguma</h1>
         </div>
         <div class = "text-center mt-5">
-          <%=link_to 'Logをつける',new_user_path, class: "btn btn-secondary btn-lg" %>
+          <% if logged_in? %>
+            <%=link_to 'Logをつける',new_curriculum_log_path, class: "btn btn-secondary btn-lg" %>
+          <% else %>
+            <%=link_to 'Logをつける',login_path, class: "btn btn-secondary btn-lg" %>
+          <% end %>
         </div>
       </div>
       <div class= "col-5  col-sm-8">
