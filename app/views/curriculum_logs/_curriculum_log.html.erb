@@ -1,22 +1,37 @@
-<div class = "border border-2 rounded-3  p-1 mb-2">
-  <div class ="row mx-auto">
-      <div class ="accordion col-sm-2 col-md-1 col-lg-1 border-end">
-        <span ><%= curriculum_log.hour %>h</span>
+<div class="accordion" id="curriculumAccordion">
+  <div class="border border-2 rounded-3 p-1 mb-2" data-bs-toggle="collapse" data-bs-target="#collapse<%= curriculum_log.id %>" aria-expanded="true" aria-controls="collapse<%= curriculum_log.id %>">
+    <div class="row mx-auto">
+      
+      <div class="col-sm-2 col-md-1 col-lg-1 border-end">
+        <span><%= curriculum_log.hour %>h</span>
         <span><%= curriculum_log.minutes %>m</span>
       </div>
-      <div class ="col-sm-10 col-md-2  col-lg-2 border-end">
+      
+      <div class="col-sm-10 col-md-2 col-lg-2 border-end">
         <%= curriculum_log.curriculum.name %>
       </div>
-      <div class ="col-sm-9 col-md-7 col-lg-8 border-end">
+      
+      <div class="col-sm-9 col-md-7 col-lg-8 border-end">
         <%= curriculum_log.title %>
       </div>
-      <div class = "col-sm-3 col-md-2 col-lg-1  d-flex bottom-0 end-0">
-        <%= link_to edit_curriculum_log_path(curriculum_log) ,class: 'btn btn-link',style:"color: gray;" do %>
+      
+      <div class="col-sm-3 col-md-2 col-lg-1 d-flex bottom-0 end-0">
+        <%= link_to edit_curriculum_log_path(curriculum_log), class: 'btn btn-link', style: "color: gray;" do %>
           <i class="bi bi-pencil-square"></i>
         <% end %>
-        <%= button_to curriculum_log_path(curriculum_log), method: :delete, class: 'btn btn-link',style:"color: gray;", data: { turbo_confirm: "削除してもよろしいですか？" } do %>
+        
+        <%= button_to curriculum_log_path(curriculum_log), method: :delete, class: 'btn btn-link', style: "color: gray;", data: { turbo_confirm: "削除してもよろしいですか？" } do %>
           <i class="bi bi-trash2"></i>
         <% end %>
       </div>
+      
     </div>
+    
+    <div id="collapse<%= curriculum_log.id %>" class="collapse" aria-labelledby="heading<%= curriculum_log.id %>" data-bs-parent="#curriculumAccordion">
+      <div class="card-body">
+        <%= curriculum_log.body %> 
+      </div>
+    </div>
+    
+  </div>
 </div>

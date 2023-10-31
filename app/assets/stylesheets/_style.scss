@@ -70,11 +70,6 @@ section {
   max-width: 300px; /* 適当な最大幅を設定 */
 }
 
-.solid-delete {
-  border: none !important;
-}
-
-
 .back-to-top {
     display: none;
     position: fixed;
@@ -97,4 +92,10 @@ section {
     font-family: unset;
     font-weight: bold;
     color: black;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
