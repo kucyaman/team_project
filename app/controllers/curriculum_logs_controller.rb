@@ -23,7 +23,7 @@ class CurriculumLogsController < ApplicationController
     @q = CurriculumLog.includes(:curriculum)
     .where(user_id: current_user.id)
     .ransack(params[:q], distinct: true)
-    @curriculum_logs = @q.result.page(params[:page]).per(20)
+    @curriculum_logs = @q.result.order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def edit
