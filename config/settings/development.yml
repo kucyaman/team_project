@@ -2,4 +2,5 @@ default_url_options:
   host: 'localhost:8000'
 sorcery:
   github:
-    callback_url: http://localhost:8000/oauth/callback?provider=github
+    callback_url: 'http://localhost:8000/oauth/callback?provider=github'
+  google_callback_url: 'http://localhost:8000/oauth/callback?provider=google'
