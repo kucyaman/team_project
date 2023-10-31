@@ -18,9 +18,9 @@ class OauthsController < ApplicationController
           reset_session
           auto_login(@user)
           redirect_to curriculum_logs_path, success: "#{provider.titleize}アカウントでログインしました。"
-        rescue
+        rescue => e
           redirect_to login_path
-          flash[:danger] = "#{provider.titleize}アカウントでのログインに失敗しました。"
+          flash[:danger] = "#{provider.titleize}アカウントでのログインに失敗しました。#{e}"
         end
       end
     end
