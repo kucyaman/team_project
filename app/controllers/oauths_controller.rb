@@ -9,19 +9,21 @@ class OauthsController < ApplicationController
   def callback
     provider = params[:provider]
     begin
-      @user = login_from(provider)
-      if @user
+      if @user = login_from(provider)
         redirect_to curriculum_logs_path, success: "#{provider.titleize}アカウントでログインしました。"
       else
-        @user = create_from(provider)
-        @profile = Profile.create(user_id: @user.id, name: @user.remote_name)
-        reset_session
-        auto_login(@user)
-        redirect_to curriculum_logs_path, success: "#{provider.titleize}アカウントでログインしました。"
+        begin
+          @user = create_from(provider)
+          @user.activate!
+          @profile = Profile.create(user_id: @user.id, name: @user.remote_name)
+          reset_session
+          auto_login(@user)
+          redirect_to curriculum_logs_path, success: "#{provider.titleize}アカウントでログインしました。"
+        rescue
+          redirect_to login_path
+          flash[:danger] = "#{provider.titleize}アカウントでのログインに失敗しました。"
+        end
       end
-    rescue
-      redirect_to login_path
-      flash[:danger] = "#{provider.titleize}アカウントでのログインに失敗しました。"
     end
   end
 end
