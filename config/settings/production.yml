@@ -3,4 +3,5 @@ default_url_options:
   host: 'loguma.onrender.com'
 sorcery:
   github:
-    callback_url: https://loguma.onrender.com/oauth/callback?provider=github
+    callback_url: 'https://loguma.onrender.com/oauth/callback?provider=github'
+  google_callback_url: 'https://loguma.onrender.com/oauth/callback?provider=google'
