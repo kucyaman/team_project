@@ -20,6 +20,7 @@ class OauthsController < ApplicationController
           redirect_to curriculum_logs_path, success: "#{provider.titleize}アカウントでログインしました。"
         rescue => e
           redirect_to login_path
+          logger.debug(@user .inspect)
           flash[:danger] = "#{provider.titleize}アカウントでのログインに失敗しました。#{e}"
         end
       end

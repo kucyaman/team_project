@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_23_022702) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_01_022315) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_022702) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+  end
+
+  create_table "chapters", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "curriculum_logs", force: :cascade do |t|
@@ -40,6 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_022702) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "chapter_id"
+    t.index ["chapter_id"], name: "index_curriculums_on_chapter_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -71,5 +79,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_022702) do
 
   add_foreign_key "curriculum_logs", "curriculums"
   add_foreign_key "curriculum_logs", "users"
+  add_foreign_key "curriculums", "chapters"
   add_foreign_key "profiles", "users"
 end
