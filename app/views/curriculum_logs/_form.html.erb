@@ -9,7 +9,10 @@
               <table class="table table-borderless">
                 <tr>
                   <th style="text-align: center;"><%= f.label :curriculum_id,class: "col-form-label"%></th>
-                  <td style="vertical-align: middle;"><%= f.collection_select :curriculum_id, @curriculums, :id, :name, include_blank: "選択して下さい", class: 'form-control' %></td>
+                  <td style="vertical-align: middle;">
+                  <%= f.collection_select :chapter_id, @chapters, :id, :name, class: 'form-control' %>
+                  <%= f.collection_select :curriculum_id, @curriculums, :id, :name, class: 'form-control' %>
+                  </td>
                 </tr>
                 <tr>
                   <th style="text-align: center;"><%= f.label :title , class: "col-form-label"%></th>

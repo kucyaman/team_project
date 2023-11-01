@@ -4,6 +4,7 @@ class CurriculumLogsController < ApplicationController
   def new
     @curriculum_log = CurriculumLog.new
     @curriculums = Curriculum.all
+    @chapters = Chapter.all
   end
 
   def create
@@ -15,6 +16,7 @@ class CurriculumLogsController < ApplicationController
     else
       flash.now[:danger] = "ログの作成に失敗しました"
       @curriculums = Curriculum.all
+      @chapters = Chapter.all
       render :new, status: :unprocessable_entity
     end
   end
@@ -28,6 +30,7 @@ class CurriculumLogsController < ApplicationController
 
   def edit
     @curriculums = Curriculum.all
+    @chapters = Chapter.all
   end
 
   def update
@@ -37,6 +40,7 @@ class CurriculumLogsController < ApplicationController
     else
       flash.now[:danger] = "ログの編集に失敗しました"
       @curriculums = Curriculum.all
+      @chapters = Chapter.all
       render :edit, status: :unprocessable_entity
     end
   end
@@ -45,6 +49,24 @@ class CurriculumLogsController < ApplicationController
     @curriculum_log.destroy!
     redirect_to curriculum_logs_path, status: :see_other
     flash[:success] = '削除が完了しました。'
+  end
+
+  def chapter_change
+    selected_curriculum_id = params[:curriculum_id]
+    chapter = Chapter.includes(:curriculums).find_by(curriculums: { id: selected_curriculum_id })
+    render json: { selected_value: chapter.id }
+  end
+
+  def curriculum_change
+    selected_chapter_id = params[:chapter_id]
+    selected_chapter = Chapter.find(selected_chapter_id)
+    if selected_chapter.id == 1
+      curriculums = Curriculum.all
+    else
+      curriculums = Curriculum.where(chapter_id: selected_chapter_id)
+    end 
+    options = curriculums.map { |curriculum| "<option value='#{curriculum.id}'>#{curriculum.name}</option>" }.join
+    render json: { options: options }
   end
 
   private

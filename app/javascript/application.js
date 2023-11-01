@@ -4,3 +4,4 @@ import "controllers"
 import "@popperjs/core"
 import "bootstrap"
 import "./custom/back_to_top";
+import "./custom/change_selector";
