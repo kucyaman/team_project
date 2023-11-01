@@ -3,4 +3,4 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
-import "./custom/curriculum_selection";
+import "./custom/back_to_top";
