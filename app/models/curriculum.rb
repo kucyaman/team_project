@@ -1,5 +1,6 @@
 class Curriculum < ApplicationRecord
   has_many :curriculum_logs
+  belongs_to :chapter
 
   validates :name, presence: true
 
