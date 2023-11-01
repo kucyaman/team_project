@@ -16,10 +16,12 @@
         </div>
       <% end %>
       <div class='text-center'>
-        <%= link_to auth_at_provider_path(provider: :github), class: "btn btn-light mt-5 py-2 px-3", style:"background-color:#0d6efd; color:#fff;" do %>
+        <%= link_to auth_at_provider_path(provider: :github), class: "btn btn-light mt-5 py-2 px-3", style:"background-color:#123A28; color:#fff;" do %>
           <i class="bi bi-github me-2"></i>GitHubでログイン
         <% end %>
-        <%= link_to 'Login with Google', auth_at_provider_path(provider: :google) %>
+        <%= link_to auth_at_provider_path(provider: :google), class: "btn btn-light mt-5 py-2 px-3", style:"background-color:#0d6efd; color:#fff;" do %>
+          <i class="bi bi-google me-2"></i>Googleでログイン
+        <% end %>
       </div>
       <div class='text-center mt-5'>
         <%= link_to '登録ページへ', new_user_path, class: "me-3" %>

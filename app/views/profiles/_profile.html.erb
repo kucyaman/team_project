@@ -3,7 +3,7 @@
 </div>
 <table class="table">
   <tr>
-    <th>total</th>
+    <th>累計勉強時間</th>
     <td><%= total_study_time(current_user) %></td>
   </tr>
   <tr>
@@ -15,19 +15,19 @@
     <td><%= remaining_time_to_1000_hours(current_user) %></td>
   </tr>
   <tr>
-    <th scope="row">name</th>
+    <th scope="row"><%= Profile.human_attribute_name(:name) %></th>
     <td><%= @profile.name %></td>
   </tr>
   <tr>
-    <th scope="row">email</th>
+    <th scope="row"><%= User.human_attribute_name(:email)%></th>
     <td><%= @user.email %></td>
   </tr>
   <tr>
-    <th scope="row">languages</th>
+    <th scope="row"><%= Profile.human_attribute_name(:language)%></th>
     <td><%= @profile.language %></td>
   </tr>
   <tr>
-    <th scope="row">introduction</th>
+    <th scope="row"><%= Profile.human_attribute_name(:introduction)%></th>
     <td><%= @profile.introduction %></td>
   </tr>
 </table>
