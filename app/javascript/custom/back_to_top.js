@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('turbo:load', function () {
   var backToTopButton = document.getElementById('back-to-top');
 
   window.onscroll = function () {
