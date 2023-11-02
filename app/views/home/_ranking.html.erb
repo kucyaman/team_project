@@ -1,0 +1,108 @@
+<% if @user_log_ranks.empty? %>
+  <div class="container text-center my-5">
+    まだ誰も投稿してないくま🐻
+  </div>
+<% else %>
+  <div class="container text-center">
+    <h4 class="mb-2">累計投稿ログ数</h4>
+  </div>
+  <div class = "row mx-auto border border-2 rounded-3 p-2 mb-5 col-lg-11">
+    <table class="table text-center">
+      <tr>
+        <th>ランク</th>
+        <th>ユーザー名</th>
+        <th>投稿ログ数</th>
+      </tr>
+      <% current_rank = 0 %>
+      <% current_count = nil %>
+      <% grouped_users = [] %>
+      <% @user_log_ranks.each do |rank| %>
+        <% if current_rank < 5 %>
+          <% if current_count != rank.curriculum_logs.count %>
+            <% if grouped_users.any? %>
+              <tr>
+                <td class="align-middle">第<%= current_rank %>位</td>
+                <td class="align-middle">
+                  <% grouped_users.each do |user| %>
+                    <div class="m-1"><%= user.profile.name %>さん</div>
+                  <% end %>
+                </td>
+                <td class="align-middle"><%= current_count %></td>
+              </tr>
+            <% end %>
+            <% grouped_users = [rank] %>
+            <% current_rank += 1 %>
+          <% else %>
+            <% grouped_users << rank %>
+          <% end %>
+          <% current_count = rank.curriculum_logs.count %>
+        <% end %>
+      <% end %>
+      <% if grouped_users.any? %>
+        <tr>
+          <td class="align-middle">第<%= current_rank %>位</td>
+          <td class="align-middle">
+            <% grouped_users.each do |user| %>
+              <%= user.profile.name %>さん<br>
+            <% end %>
+          </td>
+          <td class="align-middle"><%= current_count %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <% if @user_study_time.empty? %>
+    <div class="container text-center my-5">
+      昨日は誰も勉強してないくま🐻
+    </div>
+  <% else %>
+    <div class="container text-center">
+      <h4 class="mb-2">昨日の勉強時間</h4>
+    </div>
+    <div class = "row mx-auto border border-2 rounded-3 p-2 mb-5 col-lg-11">
+      <table class="table text-center">
+        <tr>
+          <th>ランク</th>
+          <th>ユーザー名</th>
+          <th>勉強時間</th>
+        </tr>
+        <% current_rank = 0 %>
+        <% previous_total_study_minutes = nil %>
+        <% grouped_users = [] %>
+        <% @user_study_time.each do |rank| %>
+          <% if current_rank < 5 %>
+            <% if previous_total_study_minutes != rank.total_study_minutes %>
+              <% if grouped_users.any? %>
+                <tr>
+                  <td class="align-middle">第<%= current_rank %>位</td>
+                  <td class="align-middle">
+                    <% grouped_users.each do |user| %>
+                      <div class="m-1"><%= user.profile.name %>さん</div>
+                    <% end %>
+                  </td>
+                  <td class="align-middle"><%= rank.total_study_minutes / 60 %>時間<%= rank.total_study_minutes % 60 %>分</td> 
+                </tr>
+              <% end %>
+              <% grouped_users = [rank] %>
+              <% current_rank += 1 %>
+            <% else %>
+              <% grouped_users << rank %>
+            <% end %>
+            <% previous_total_study_minutes = rank.total_study_minutes %>
+          <% end %>
+        <% end %>
+        <% if grouped_users.any? %>
+          <tr>
+            <td class="align-middle">第<%= current_rank %>位</td>
+            <td class="align-middle">
+              <% grouped_users.each do |user| %>
+                <div class="m-1"><%= user.profile.name %>さん</div>
+              <% end %>
+            </td>
+            <td class="align-middle"><%= previous_total_study_minutes / 60 %>時間<%= previous_total_study_minutes % 60 %>分</td> 
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  <% end %>
+<% end %>
