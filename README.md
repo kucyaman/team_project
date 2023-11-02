@@ -23,10 +23,10 @@ RUNTEQの学習では１０００時間の学習目標時間を掲げ、日々�
 
 
 # メイン機能
-| 投稿機能| 削除機能 |
+| 投稿機能| 進捗機能 |
 | ------ | ------ |
-| [![Image from Gyazo](https://i.gyazo.com/8a64e78f341e10e03f892d9ce02ec38c.gif)](https://gyazo.com/8a64e78f341e10e03f892d9ce02ec38c) |[![Image from Gyazo](https://i.gyazo.com/831c0a348dc52d80d757c37979e7b76c.gif)](https://gyazo.com/831c0a348dc52d80d757c37979e7b76c) |
-| 投稿できます！すごい！| 削除もできます！すごすぎる！|
+| [![Image from Gyazo](https://i.gyazo.com/8a64e78f341e10e03f892d9ce02ec38c.gif)](https://gyazo.com/8a64e78f341e10e03f892d9ce02ec38c) |[![Image from Gyazo](https://i.gyazo.com/e47578e540659691fc05f0064e2931c5.png)](https://gyazo.com/e47578e540659691fc05f0064e2931c5) |
+| Logを投稿できます！　| 勉強時間が増えると進捗バーが増えます！|
 
 # 使用技術
 | カテゴリ       | 技術  |
