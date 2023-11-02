@@ -52,10 +52,6 @@ section {
   top: 0;
 }
 
-.short-window {
-  height: 100vh;
-}
-
 .text-ellipsis {
   white-space: nowrap;
   overflow: hidden;
@@ -98,4 +94,16 @@ section {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.footer {
+  margin-top: auto;
+  background-color: #f8f9fa; 
+  transition: transform 0.3s; /* スムーズな表示切り替えを追加 */
 }
