@@ -70,8 +70,8 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'loguma.onrender.com',
-    user_name:            ENV['GMAIL_USERNAME'],
-    password:             ENV['GMAIL_PASSWORD'],
+    user_name:            '45logumaloguma@gmail.com',
+    password:             'noyu sdkh cbbd bvih',
     authentication:       'plain',
     enable_starttls_auto: true 
   }
