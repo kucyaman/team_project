@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-lg-7 mx-auto">
           <div class = "text-center mt-5">
-            <h2>Profile</h2>
+            <h2 class = "cantata">Profile</h2>
           </div>
             <%= form_with(model: @profile, local: true, url: profile_path) do |f| %>
               <%= render 'shared/error_message', object: f.object %>
