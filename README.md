@@ -25,23 +25,24 @@ RUNTEQの学習では１０００時間の学習目標時間を掲げ、日々�
 # メイン機能
 | 投稿機能| 削除機能 |
 | ------ | ------ |
-| [![Image from Gyazo](https://i.gyazo.com/ae7eb05cb1a15775274a74624c8dd3cb.gif)](https://gyazo.com/ae7eb05cb1a15775274a74624c8dd3cb) |[![Image from Gyazo](https://i.gyazo.com/831c0a348dc52d80d757c37979e7b76c.gif)](https://gyazo.com/831c0a348dc52d80d757c37979e7b76c) |
+| [![Image from Gyazo](https://i.gyazo.com/8a64e78f341e10e03f892d9ce02ec38c.gif)](https://gyazo.com/8a64e78f341e10e03f892d9ce02ec38c) |[![Image from Gyazo](https://i.gyazo.com/831c0a348dc52d80d757c37979e7b76c.gif)](https://gyazo.com/831c0a348dc52d80d757c37979e7b76c) |
 | 投稿できます！すごい！| 削除もできます！すごすぎる！|
 
 # 使用技術
 | カテゴリ       | 技術  |
 | :------------- | :------------ |
-| フロントエンド | CSS                          |
-| バックエンド   | Ruby 3.2.2 Rails 7.0.7 |
+| フロントエンド | CSS/ JavaScript   |
+| バックエンド   | Ruby 3.2.2/ Rails 7.0.7 |
 | データベース   |  PostgreSQL  |
-| 認証           |      |
-| 環境構築       |     |
+| 認証           |   GitHub/ Google   |
+| 環境構築       |  Docker  |
 | CI/CD          |   |
-| インフラ       | |
+| インフラ       |  |
 | API            |    |
 | その他         |  |
 
 # 選定理由
+手軽に始められるようにGitHubとGoogleの認証を採用しました。
 
 # インフラ構成
 
