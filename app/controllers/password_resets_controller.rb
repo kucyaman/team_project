@@ -32,7 +32,7 @@ class PasswordResetsController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
     # the next line clears the temporary token and updates the password
     if @user.change_password(params[:user][:password])
-      redirect_to login_path, success: t('.success')
+      redirect_to login_path, success: 'パスワードリセットのメールを送信しました'
     else
       render action: 'edit'
     end
