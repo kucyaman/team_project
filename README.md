@@ -50,7 +50,7 @@ RUNTEQの学習では１０００時間の学習目標時間を掲げ、日々�
 [![Image from Gyazo](https://i.gyazo.com/918a050a1ec27354090c37a03900ed87.png)](https://gyazo.com/918a050a1ec27354090c37a03900ed87)
 
 # 画面遷移図
-
+[![Image from Gyazo](https://i.gyazo.com/f34c2c12293fc80e800b2644858563a0.png)](https://gyazo.com/f34c2c12293fc80e800b2644858563a0)
 # 工夫点
 
 ###  1.工夫
