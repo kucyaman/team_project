@@ -4,6 +4,7 @@
       <div class="row">
         <div class="col-lg-8 mx-auto">
           <div class = "mt-5">
+            <div style="color: red; text-align: right;">*入力必須　</div>
             <%= form_with model: curriculum_log do |f| %>
               <%= render 'shared/error_message', object: f.object %>
               <table class="table table-borderless">
@@ -15,27 +16,29 @@
                   </td>
                 </tr>
                 <tr>
-                  <th style="text-align: center;"><%= f.label :title , class: "col-form-label"%></th>
+                  <th style="text-align: center; vertical-align:middle;">
+                    <%= f.label :title , class: "col-form-label", style: "display: inline;" %>
+                    <div style="color: red; display: inline;"> *</div>
+                  </th>
                   <td><%= f.text_field :title, class: 'form-control' %></td>
                 </tr>
                 <tr>
-                  <th style="text-align: center;"><%= f.label :body , class: "col-form-label"%></th>
+                  <th style="text-align: center;  vertical-align:middle;"><%= f.label :body , class: "col-form-label"%></th>
                   <td><%= f.text_area :body, class: 'form-control' %></td>
                 </tr>
                 <tr>
                   <th style="text-align: center;"><%= f.label '勉強時間' , class: "col-form-label"%></th>
                   <td>
                     <div style="display: inline-block;">
-                      <%= f.text_field :hour, class: 'form-control' %></div>
+                      <%= f.select :hour, [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24], class: 'form-control' %></div>
                     <div style="display: inline-block;">
                       <%= f.label :hour, 'h', class: "col-form-label" %></div>
                     <div style="display: inline-block;">
-                      <%= f.text_field :minutes, class: 'form-control' %></div>
+                      <%= f.select :minutes, [0,5,10,15,20,25,30,35,40,45,50,55], class: 'form-control' %></div>
                     <div style="display: inline-block;">
                       <%= f.label :minutes, 'min', class: "col-form-label" %></div>
                   </td>
                 </tr>
-                </div>
               </table>
               <div class="text-center">
                 <%= f.submit 'Logをつける',class: 'btn btn-secondary m-4'  %>
