@@ -8,7 +8,8 @@ class PasswordResetsController < ApplicationController
   def create
     @user = User.find_by(email: params[:email])
     @user&.deliver_reset_password_instructions!
-    redirect_to login_path, success: t('.success')
+    redirect_to login_path
+    flash[:success]= 'パスワードリセットのメールを送信しました'
   end
 
   # This is the reset password form.
@@ -32,7 +33,8 @@ class PasswordResetsController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
     # the next line clears the temporary token and updates the password
     if @user.change_password(params[:user][:password])
-      redirect_to login_path, success: 'パスワードリセットのメールを送信しました'
+      redirect_to login_path
+      flash[:success]= 'パスワードがリセットされました'
     else
       render action: 'edit'
     end

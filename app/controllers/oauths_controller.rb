@@ -10,14 +10,16 @@ class OauthsController < ApplicationController
     provider = params[:provider]
     begin
       if @user = login_from(provider)
-        redirect_to curriculum_logs_path, success: "#{provider.titleize}アカウントでログインしました。"
+        redirect_to curriculum_logs_path
+        flash[:success] = "#{provider.titleize}アカウントでログインしました。"
       else
         begin
           @user = create_from(provider)
           @profile = Profile.create(user_id: @user.id, name: @user.remote_name)
           reset_session
           auto_login(@user)
-          redirect_to curriculum_logs_path, success: "#{provider.titleize}アカウントでログインしました。"
+          redirect_to curriculum_logs_path
+          flash[:success] = "#{provider.titleize}アカウントでログインしました。"
         rescue
           redirect_to login_path
           flash[:danger] = "#{provider.titleize}アカウントでのログインに失敗しました。"
