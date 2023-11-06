@@ -76,7 +76,7 @@ module ApplicationHelper
       },
       twitter: {
         card: 'summary',
-        image: image_url('Loguma.jpeg')
+        image: image_url('Loguma_x.jpeg')
       }
     }
   end
