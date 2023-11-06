@@ -75,7 +75,7 @@ module ApplicationHelper
         local: 'ja-JP'
       },
       twitter: {
-        card: 'summary_large_image',
+        card: 'summary',
         image: image_url('Loguma.jpeg')
       }
     }
