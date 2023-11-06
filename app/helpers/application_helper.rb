@@ -49,4 +49,10 @@ module ApplicationHelper
       "#{hours}時間#{minutes}分"
     end
   end
+
+  def count_logs_today(user)
+    today = Date.today
+    curriculum_logs = user.curriculum_logs.where('DATE(created_at) = ?', today)
+    curriculum_logs.count
+  end
 end
