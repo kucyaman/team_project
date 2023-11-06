@@ -25,7 +25,7 @@
   <%= paginate @curriculum_logs, theme: 'bootstrap-5' %>
 
   <div class="text-center">
-    <%= link_to "https://twitter.com/share?url=https://loguma.onrender.com&text=#{current_user.profile.name}さんの今日の勉強時間は#{daily_study_time(current_user)}、#{count_logs_today(current_user)}個Logumaをつけたくま🐻", title: 'Twitter', target: '_blank' do %>
+    <%= link_to "https://twitter.com/share?url=https://loguma.onrender.com&text=#{current_user.profile.name}さんの今日の勉強時間は#{daily_study_time(current_user)}、#{count_logs_today(current_user)}個Logumaをつけたくま🐻&hashtags=Loguma", title: 'Twitter', target: '_blank' do %>
       <i class="bi bi-twitter"></i>
     <% end %>
   </div>   
