@@ -12,13 +12,7 @@
     </script>
     <title>App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
-    <meta property="og:url" content="https://loguma.onrender.com/">
-    <meta property="og:type" content="product">
-    <meta property="og:title" content="Loguma">
-    <meta property="og:description" content="Logumaで、ログをつける。身につける。">
-    <meta property="og:site_name" content="Loguma">
-    <meta property="og:image" content="<%= image_url('Loguma.jpeg')%>">
+    <%= display_meta_tags(default_meta_tags) %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload"%>

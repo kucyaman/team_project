@@ -86,3 +86,4 @@ gem 'bootstrap5-kaminari-views'
 gem 'byebug'
 gem 'rails-i18n'
 gem 'dotenv-rails'
+gem "meta-tags"
