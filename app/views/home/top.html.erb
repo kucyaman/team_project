@@ -73,9 +73,7 @@
 </div>
 
 <div class="container">
-  <% @logs.each do |log| %>
-    <%= render partial: 'everyone_log', locals: { log: log } %>
-  <% end %>
+  <%= render partial: 'home/everyone_log', collection: @everyone_logs, as: :everyone_log %>
 </div>
 <div class="container text-center mt-5 mb-5">
     <a id="back-to-top" href="#" class="btn btn-secondary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">TOP</a>

@@ -19,7 +19,7 @@
       </div>
       
       <div class="col-sm-3 col-md-2 col-lg-1 d-flex bottom-0 end-0">
-        <%= link_to edit_curriculum_log_path(curriculum_log), class: 'btn btn-link', style: "color: gray;" do %>
+        <%= link_to edit_curriculum_log_path(curriculum_log), class: 'btn btn-link', id:"edit-button",style: "color: gray;" do %>
           <i class="bi bi-pencil-square"></i>
         <% end %>
         
@@ -31,10 +31,10 @@
     </div>
     
     <div id="collapse<%= curriculum_log.id %>" class="collapse" aria-labelledby="heading<%= curriculum_log.id %>" data-bs-parent="#curriculumAccordion">
-      <div class="card-body">
-        <%= curriculum_log.body %> 
+      <div class="card-body markdown">
+      <%= markdown(curriculum_log.body)%>
       </div>
     </div>
-    
+
   </div>
 </div>
