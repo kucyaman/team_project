@@ -83,7 +83,8 @@ module MarkdownHelper
       strikethrough: true,
       underline: true,
       highlight: true,
-      quote: true
+      quote: true,
+      escape_html:true, 
     }
 
     renderer = CustomRenderHTML.new(options)
