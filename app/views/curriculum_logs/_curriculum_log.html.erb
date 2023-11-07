@@ -31,10 +31,10 @@
     </div>
     
     <div id="collapse<%= curriculum_log.id %>" class="collapse" aria-labelledby="heading<%= curriculum_log.id %>" data-bs-parent="#curriculumAccordion">
-      <div class="card-body">
-        <%= curriculum_log.body %> 
+      <div class="card-body markdown">
+      <%= markdown(curriculum_log.body).html_safe %>
       </div>
     </div>
-    
+
   </div>
 </div>

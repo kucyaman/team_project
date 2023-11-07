@@ -2,6 +2,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.2",
-    "bootstrap-icons": "^1.11.1"
+    "bootstrap-icons": "^1.11.1",
+    "simplemde": "^1.11.2"
   }
 }
