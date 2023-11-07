@@ -13,7 +13,7 @@ ja:
         password_confirmation: パスワード確認
       profile:
         name: 名前
-        language: 言語
+        language: 学習言語
         introduction: ひとこと
         avatar: アイコン
       curriculum_log:
