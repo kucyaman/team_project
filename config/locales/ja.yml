@@ -29,6 +29,10 @@ ja:
         name: 課題
       chapter:
         name: チャプター
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"
+      short: "%m/%d %H:%M"
   helpers:
     label:
       curriculum_id: 課題

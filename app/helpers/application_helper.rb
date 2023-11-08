@@ -49,4 +49,35 @@ module ApplicationHelper
       "#{hours}時間#{minutes}分"
     end
   end
+
+  def count_logs_today(user)
+    today = Date.today
+    curriculum_logs = user.curriculum_logs.where('DATE(created_at) = ?', today)
+    curriculum_logs.count
+  end
+
+  def default_meta_tags
+    {
+      site: 'Loguma',
+      title: 'Loguma',
+      reverse: true,
+      charset: 'utf-8',
+      description: 'Logumaで、ログをつける。身につける。',
+      canonical: request.original_url,
+      separator: '|',
+      og: {
+        site_name: :site,
+        title: :title,
+        description: :description,
+        type: 'website',
+        url: request.original_url,
+        image: image_url('Loguma.jpeg'),
+        local: 'ja-JP'
+      },
+      twitter: {
+        card: 'summary',
+        image: image_url('Loguma_x.jpeg')
+      }
+    }
+  end
 end

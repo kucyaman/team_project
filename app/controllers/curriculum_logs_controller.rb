@@ -72,9 +72,11 @@ class CurriculumLogsController < ApplicationController
   private
 
   def set_curriculum_log
-    @curriculum_log = current_user.curriculum_logs.find(params[:id])
+  @curriculum_log = current_user.curriculum_logs.find(params[:id])
+   safe= @curriculum_log.body.html_safe
+   @curriculum_log.body = safe
   end
-
+  
   def curriculum_log_params
     params.require(:curriculum_log).permit(:title, :body, :hour, :minutes, :curriculum_id)
   end

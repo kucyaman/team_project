@@ -212,6 +212,8 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    meta-tags (2.19.0)
+      actionpack (>= 3.2.0, < 7.2)
     method_source (1.0.0)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
@@ -296,10 +298,12 @@ GEM
       i18n
     rdoc (6.5.0)
       psych (>= 4.0.0)
+    redcarpet (3.6.0)
     regexp_parser (2.8.2)
     reline (0.3.9)
       io-console (~> 0.5)
     rexml (3.2.6)
+    rouge (4.2.0)
     ruby-vips (2.2.0)
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
@@ -388,11 +392,14 @@ DEPENDENCIES
   jquery-ui-rails
   kaminari
   letter_opener_web
+  meta-tags
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.7)
   rails-i18n
   ransack
+  redcarpet
+  rouge
   sass-rails (>= 6)
   seed-fu
   selenium-webdriver
