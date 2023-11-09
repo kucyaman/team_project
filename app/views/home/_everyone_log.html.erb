@@ -1,14 +1,14 @@
-<div class = "row mx-auto border border-2 rounded-3 p-2 mb-2 col-lg-11">
-  <div class ="accordion col-sm-2 col-md-1 col-lg-3 border-end">
-    <%= log[:profile_name] %>は
-    <%= log[:log][:hour] %>時間
-    <%= log[:log][:minutes] %>分勉強したよ！
+<div class="row mx-auto border border-2 rounded-3 p-2 mb-2 col-lg-11">
+  <div class="accordion col-sm-2 col-md-1 col-lg-3 border-end">
+    <%= everyone_log.user.profile.name %>は
+    <%= everyone_log.hour %>時間
+    <%= everyone_log.minutes %>分勉強したよ！
   </div>
-  <div class ="col-sm-10 col-md-2  col-lg-2 border-end truncate">
-    <%= log[:log][:title] %>
+  <div class="col-sm-9 col-md-5 col-lg-4 truncate markdown text-ellipsis-body border-end">
+    <p>今日のトータル: <%= daily_study_time(everyone_log.user) %>🐻</p>
   </div>
-  <div class ="col-sm-9 col-md-7 col-lg-7 truncate">
-    <%= log[:log][:body] %>
+  <div class="col-sm-10 col-md-6 col-lg-5 truncate">
+    <%= everyone_log.title %>
   </div>
-</div>
 
+</div>

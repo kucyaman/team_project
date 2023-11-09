@@ -1,17 +1,17 @@
 document.addEventListener('turbo:load', function () {
   var backToTopButton = document.getElementById('back-to-top');
 
-  window.onscroll = function () {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+  if (backToTopButton) {
+    window.onscroll = function () {
+      if (window.scrollY > 300) { // 'scrollY'を使用
         backToTopButton.style.display = "block";
-    } else {
+      } else {
         backToTopButton.style.display = "none";
-    }
-  };
+      }
+    };
 
-  backToTopButton.onclick = function () {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  };
+    backToTopButton.onclick = function () {
+      window.scrollTo(0, 0);
+    };
+  }
 });
-

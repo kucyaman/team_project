@@ -86,4 +86,8 @@ gem 'bootstrap5-kaminari-views'
 gem 'byebug'
 gem 'rails-i18n'
 gem 'dotenv-rails'
+gem 'redcarpet'
+gem 'rouge'
 gem "meta-tags"
+gem "aws-sdk-s3", require: false
+gem 'fog-aws'
