@@ -4,10 +4,11 @@
     <%= everyone_log.hour %>時間
     <%= everyone_log.minutes %>分勉強したよ！
   </div>
-  <div class="col-sm-10 col-md-6 col-lg-5 border-end truncate">
+  <div class="col-sm-9 col-md-5 col-lg-4 truncate markdown text-ellipsis-body border-end">
+    <p>今日のトータル: <%= daily_study_time(everyone_log.user) %>🐻</p>
+  </div>
+  <div class="col-sm-10 col-md-6 col-lg-5 truncate">
     <%= everyone_log.title %>
   </div>
-  <div class="col-sm-9 col-md-5 col-lg-4 truncate markdown text-ellipsis-body">
-  <p>今日のトータル: <%= daily_study_time(everyone_log.user) %>🐻</p>
-  </div>
+
 </div>
