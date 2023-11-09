@@ -16,6 +16,11 @@
       <% end %>
     </div>
   </div>
+  <div class="text-center mb-3">
+    <%= link_to "https://twitter.com/share?url=https://loguma.onrender.com&text=#{current_user.profile.name}さんの今日の勉強時間は#{daily_study_time(current_user)}、#{count_logs_today(current_user)}個Logumaをつけたくま🐻&hashtags=Loguma", title: 'Twitter', target: '_blank' do %>
+      <i class="bi bi-twitter"></i>
+    <% end %>
+  </div>   
 
   <!-- 検索窓 -->
   <div class="col-lg-10 offset-lg-1 mb-3">
@@ -24,9 +29,5 @@
   <%= render @curriculum_logs %>
   <%= paginate @curriculum_logs, theme: 'bootstrap-5' %>
 
-  <div class="text-center">
-    <%= link_to "https://twitter.com/share?url=https://loguma.onrender.com&text=#{current_user.profile.name}さんの今日の勉強時間は#{daily_study_time(current_user)}、#{count_logs_today(current_user)}個Logumaをつけたくま🐻&hashtags=Loguma", title: 'Twitter', target: '_blank' do %>
-      <i class="bi bi-twitter"></i>
-    <% end %>
-  </div>   
+
 </div>
