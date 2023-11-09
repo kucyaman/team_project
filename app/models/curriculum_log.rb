@@ -32,9 +32,6 @@ class CurriculumLog < ApplicationRecord
       "INLINECODEMARKER#{inline_code.length - 1}"
     end
   
-    # <script>タグをエスケープ
-    self.body.gsub!(/<script>/i, '&lt;script&gt;')
-    self.body.gsub!(/<\/script>/i, '&lt;/script&gt;')
   
     # 本文をエスケープ
     self.body = ERB::Util.html_escape(self.body)
