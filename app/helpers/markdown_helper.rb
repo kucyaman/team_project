@@ -18,6 +18,10 @@ class CustomRenderHTML < Redcarpet::Render::HTML
 
     lexer = Rouge::Lexer.find_fancy(language, code) || Rouge::Lexers::PlainText
     code.gsub!(/^    /, "\t") if lexer.tag == 'make'
+    
+    # エスケープされた文字列をデコード
+    code = CGI.unescapeHTML(code)
+
     formatter = rouge_formatter(lexer)
     result = formatter.format(lexer.lex(code))
     return "<div class=#{wrap_class}>#{copy_button}#{result}</div" if filename.blank? && language.blank?
@@ -62,10 +66,6 @@ class CustomRenderHTML < Redcarpet::Render::HTML
 end
 
 module MarkdownHelper
-  def plaintext(text)
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
-    markdown.render(text)
-  end
   def markdown(text)
     options = {
       with_toc_data: true,
@@ -84,17 +84,11 @@ module MarkdownHelper
       underline: true,
       highlight: true,
       quote: true,
-      escape_html:true, 
+      escape_html: true,
     }
 
     renderer = CustomRenderHTML.new(options)
     markdown = Redcarpet::Markdown.new(renderer, extensions)
-    markdown.render(text).html_safe
-  end
-
-  def toc(text)
-    renderer = Redcarpet::Render::HTML_TOC.new(nesting_level: 6)
-    markdown = Redcarpet::Markdown.new(renderer)
     markdown.render(text).html_safe
   end
 end

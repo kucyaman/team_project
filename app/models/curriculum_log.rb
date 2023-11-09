@@ -21,16 +21,17 @@ class CurriculumLog < ApplicationRecord
     # コードブロックを保持
     code_blocks = []
     self.body = self.body.gsub(/```(.*?)```/m) do
-      code_blocks << $1
+      code_blocks << ERB::Util.html_escape($1)
       "CODEBLOCKMARKER#{code_blocks.length - 1}"
     end
   
     # バッククォートで囲まれたテキストを一時的にマーキング
     inline_code = []
     self.body = self.body.gsub(/`([^`]+)`/) do
-      inline_code << $1
+      inline_code << ERB::Util.html_escape($1)
       "INLINECODEMARKER#{inline_code.length - 1}"
     end
+  
   
     # 本文をエスケープ
     self.body = ERB::Util.html_escape(self.body)
@@ -45,6 +46,5 @@ class CurriculumLog < ApplicationRecord
       self.body.gsub!("INLINECODEMARKER#{index}", "`#{code_text}`")
     end
   end
-  
   
 end

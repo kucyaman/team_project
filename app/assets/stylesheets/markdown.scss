@@ -132,6 +132,7 @@
   div.highlight {
       margin: 0 !important;
       padding: 0 !important;
+      border: 1px solid #ccc; 
   }
 
   .highlight-wrap {
@@ -147,7 +148,7 @@
 
     // ファイル名
     .highlight-info {
-      background: dimgray;
+      background: rgb(200, 199, 199);
       color: white;
       padding: 4px 8px;
       display: flex;
@@ -159,7 +160,7 @@
       overflow-x: scroll;
       padding: 0.75em;
       .lineno {
-        color: #ccc;
+        color: #f2f2f2;
       }
       &-info {
           font-size: 13px;
@@ -173,11 +174,11 @@
       top: 0;
       right: 8px;
       padding: 2px 8px;
-      background-color: #ecfdf5;
+      background-color: #e4e4e4;
       border-radius: 8px;
       font-size: 11px;
       &:hover {
-        background-color: lightgreen;
+        background-color: rgb(201, 201, 201);
       }
     }
   }
