@@ -1,0 +1,18 @@
+inherit_from: .rubocop_todo.yml
+require:
+  - rubocop-performance # 拡張機能
+  - rubocop-rails # 拡張機能
+  - rubocop-rspec # 拡張機能
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/*'
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'app/controllers/*'
+    - 'app/mailers/user_mailer.rb'
+    - 'app/helpers/markdown_helper.rb'
+  TargetRubyVersion: 3.1
+

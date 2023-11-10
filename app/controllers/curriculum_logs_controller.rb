@@ -1,8 +1,20 @@
 class CurriculumLogsController < ApplicationController
   before_action :set_curriculum_log, only: %i[edit update destroy]
 
+  def index
+    @q = CurriculumLog.includes(:curriculum)
+    .where(user_id: current_user.id)
+    .ransack(params[:q], distinct: true)
+    @curriculum_logs = @q.result.order(created_at: :desc).page(params[:page]).per(20)
+  end
+
   def new
     @curriculum_log = CurriculumLog.new
+    @curriculums = Curriculum.all
+    @chapters = Chapter.all
+  end
+
+  def edit
     @curriculums = Curriculum.all
     @chapters = Chapter.all
   end
@@ -19,18 +31,6 @@ class CurriculumLogsController < ApplicationController
       @chapters = Chapter.all
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def index
-    @q = CurriculumLog.includes(:curriculum)
-    .where(user_id: current_user.id)
-    .ransack(params[:q], distinct: true)
-    @curriculum_logs = @q.result.order(created_at: :desc).page(params[:page]).per(20)
-  end
-
-  def edit
-    @curriculums = Curriculum.all
-    @chapters = Chapter.all
   end
 
   def update
