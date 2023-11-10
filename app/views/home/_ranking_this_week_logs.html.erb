@@ -1,0 +1,25 @@
+<div class = "row mx-auto border border-2 rounded-3 p-2 mb-5 col-lg-11">
+  <table class="table text-center">
+    <tr>
+      <th>ランク</th>
+      <th>ユーザー名</th>
+      <th>投稿ログ数</th>
+    </tr>
+    <% prepare_rankings(@user_log_ranks).each do |ranking| %>
+      <tr>
+        <td class="align-middle">
+          <% if ranking[:rank] <= 3 %>
+            <%= image_tag("rank#{ranking[:rank]}.png",size:'40x40', class:'img-fluid') %>
+          <% end %>
+          第<%= ranking[:rank] %>位
+        </td>
+        <td class="align-middle">
+          <% ranking[:users].each do |user| %>
+            <div class="m-1"><%= user.profile.name %>さん</div>
+          <% end %>
+        </td>
+        <td class="align-middle"><%= ranking[:count] %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

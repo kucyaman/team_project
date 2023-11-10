@@ -80,4 +80,60 @@ module ApplicationHelper
       }
     }
   end
+
+  def prepare_rankings(user_log_ranks)
+    rankings = []
+    current_rank = 1
+    current_count = nil
+    grouped_users = []
+
+    user_log_ranks.each do |rank|
+      if current_count != rank.curriculum_logs.count
+        if grouped_users.any?
+          rankings << { rank: current_rank, users: grouped_users.dup, count: current_count }
+          current_rank += 1
+          break if current_rank == 6
+        end
+        grouped_users = [rank]
+      else
+        grouped_users << rank
+      end
+      current_count = rank.curriculum_logs.count
+    end
+
+    # Handle last group
+    rankings << { rank: current_rank, users: grouped_users, count: current_count } if grouped_users.any?
+    
+    rankings
+  end
+
+  def prepare_study_time_rankings(user_study_time)
+    rankings = []
+    current_rank = 1
+    previous_total_study_minutes = nil
+    grouped_users = []
+
+    user_study_time.each do |rank|
+      if previous_total_study_minutes != rank.total_study_minutes
+        if grouped_users.any?
+          rankings << { rank: current_rank, users: grouped_users.dup, total_minutes: previous_total_study_minutes }
+          current_rank += 1
+          break if current_rank == 6
+        end
+        grouped_users = [rank]
+      else
+        grouped_users << rank
+      end
+      previous_total_study_minutes = rank.total_study_minutes
+    end
+
+    # Handle last group
+    rankings << { rank: current_rank, users: grouped_users, total_minutes: previous_total_study_minutes } if grouped_users.any?
+    
+    rankings
+  end
+
+  def format_study_time(minutes)
+    "#{minutes / 60}時間#{minutes % 60}分"
+  end
 end
