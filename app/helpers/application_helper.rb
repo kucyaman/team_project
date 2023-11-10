@@ -1,9 +1,9 @@
 module ApplicationHelper
   def daily_study_time(user)
-    today = Date.today
+    today = Time.zone.today
     curriculum_logs = user.curriculum_logs.where('DATE(created_at) = ?', today)
 
-    total_minutes = curriculum_logs.sum { |log| log.hour * 60 + log.minutes }
+    total_minutes = curriculum_logs.sum { |log| (log.hour * 60) + log.minutes }
     hours = total_minutes / 60
     minutes = total_minutes % 60
 
@@ -25,8 +25,8 @@ module ApplicationHelper
     total_hours = user.hours_with_minutes[0]
     total_minutes = user.hours_with_minutes[1]
     
-    if total_hours * 60 + total_minutes < 1000 * 60
-      remaining_minutes = (1000 * 60 - (total_hours * 60 + total_minutes))
+    if (total_hours * 60) + total_minutes < 1000 * 60
+      remaining_minutes = ((1000 * 60) - ((total_hours * 60) + total_minutes))
       hours_remaining = remaining_minutes / 60
       minutes_remaining = remaining_minutes % 60
 
@@ -51,7 +51,7 @@ module ApplicationHelper
   end
 
   def count_logs_today(user)
-    today = Date.today
+    today = Time.zone.today
     curriculum_logs = user.curriculum_logs.where('DATE(created_at) = ?', today)
     curriculum_logs.count
   end
