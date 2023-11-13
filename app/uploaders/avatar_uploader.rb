@@ -1,4 +1,6 @@
 class AvatarUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MiniMagick
+  process resize_to_limit: [500, 500]
   if Rails.env.production?
     storage :fog # 本番環境ではfogを使用
   else
