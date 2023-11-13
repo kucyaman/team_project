@@ -88,7 +88,7 @@ module ApplicationHelper
     grouped_users = []
 
     user_log_ranks.each do |rank|
-      if current_count != rank.curriculum_logs.count
+      if current_count != rank.curriculum_logs_count
         if grouped_users.any?
           rankings << { rank: current_rank, users: grouped_users.dup, count: current_count }
           current_rank += 1
@@ -98,12 +98,14 @@ module ApplicationHelper
       else
         grouped_users << rank
       end
-      current_count = rank.curriculum_logs.count
+      current_count = rank.curriculum_logs_count
     end
 
     # Handle last group
-    rankings << { rank: current_rank, users: grouped_users, count: current_count } if grouped_users.any?
-    
+    if current_rank < 6
+      rankings << { rank: current_rank, users: grouped_users, count: current_count } if grouped_users.any?
+    end
+
     rankings
   end
 
@@ -128,8 +130,10 @@ module ApplicationHelper
     end
 
     # Handle last group
-    rankings << { rank: current_rank, users: grouped_users, total_minutes: previous_total_study_minutes } if grouped_users.any?
-    
+    if current_rank < 6
+      rankings << { rank: current_rank, users: grouped_users, total_minutes: previous_total_study_minutes } if grouped_users.any?
+    end
+
     rankings
   end
 
