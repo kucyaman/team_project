@@ -453,6 +453,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk-s3
+  bcrypt
   bootsnap
   bootstrap (~> 5.0.2)
   bootstrap5-kaminari-views
