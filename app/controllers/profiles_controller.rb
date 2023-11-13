@@ -39,7 +39,7 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:name, :language, :introduction, :avatar, :avatar_cache)
+    params.require(:profile).permit(:name, :language, :introduction, :avatar, :avatar_cache,:hour, :minutes)
   end
 
   def set_user
