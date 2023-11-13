@@ -30,6 +30,13 @@
     <th scope="row"><%= Profile.human_attribute_name(:introduction)%></th>
     <td><%= @profile.introduction %></td>
   </tr>
+  <tr>
+  <th>これまでの勉強時間</th>
+  <td>
+    <%= @profile.hour ||= 0 %>時間<%= @profile.minutes ||= 0 %>分
+  </td>
+</tr>
+  </tr>
 </table>
 <div class='text-center mt-5'>
   <%= link_to '編集', edit_profile_path, class: 'btn btn-outline-secondary float-right m-3 btn-sm' %>

@@ -28,7 +28,21 @@
                 <tr>
                   <th><%= f.label :introduction, class:"form-label" %></th>
                   <td><%= f.text_field :introduction, class:"form-control mb-3" %></td>
-              </tr>
+                </tr>
+                <tr>
+                  <th><%= f.label 'これまでの勉強時間' , class: "col-form-label"%></th>
+                  <td>
+                    <div style="display: inline-block;">
+                      <%= f.text_field :hour, class: 'form-control' %></div>
+                    <div style="display: inline-block;">
+                      <%= f.label :hour, 'h', class: "col-form-label" %></div>
+                    <div style="display: inline-block;">
+                      <%= f.text_field :minutes,  class: 'form-control' %></div>
+                    <div style="display: inline-block;">
+                      <%= f.label :minutes, 'min', class: "col-form-label" %></div>
+                  </td>
+                </tr>
+
               </table>
                 <div class = "text-center">
                   <%= f.submit '更新', class: 'btn btn-outline-secondary' %>
