@@ -105,5 +105,11 @@ body {
 .footer {
   margin-top: auto;
   background-color: #f8f9fa; 
-  transition: transform 0.3s; /* スムーズな表示切り替えを追加 */
+  transition: transform 0.3s;
+}
+
+.bi-github,
+.bi-google {
+    font-size: 50px; 
+    color: #676666;
 }
