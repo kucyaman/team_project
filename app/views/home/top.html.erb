@@ -30,24 +30,36 @@
 
   <div class = "row g-4  mx-auto col-10">
     <div class = "col-lg-4 col-sm-6 mx-auto">
-      <div class ="content card-effect text-center">
-        <h4 class = "mt-2 mb-4">ログをつける</h4>
-        <p>ログ駆動開発に特化したアプリで、</p>
-        <p>記録しやすい、管理しやすいを実現。</p>
+      <div>
+        <%= link_to '#', data: { bs_toggle: "modal", bs_target: "#howtouseModal" } ,class: "text-decoration-none text-reset" do %>
+          <div class="content card-effect text-center">
+            <h4 class = "mt-2 mb-4">ログをつける</h4>
+            <p>ログ駆動開発に特化したアプリで、</p>
+            <p>記録しやすい、管理しやすいを実現。</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class = "col-lg-4 col-sm-6 mx-auto">
+      <div>
+        <%= link_to '#', data: { bs_toggle: "modal", bs_target: "#timeModal" } ,class: "text-decoration-none text-reset" do %>
+          <div class ="content card-effect text-center">
+            <h4 class = "mt-2 mb-4">学習時間を記録できる</h4>
+            <p>ログごとの時間、合計時間も記録。</p>
+            <p>積み上げた時間がわかる。</p>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class = "col-lg-4 col-sm-6 mx-auto">
       <div class ="content card-effect text-center">
-        <h4 class = "mt-2 mb-4">学習時間を記録できる</h4>
-        <p>ログごとの時間、合計時間も記録。</p>
-        <p>積み上げた時間がわかる。</p>
-      </div>
-    </div>
-    <div class = "col-lg-4 col-sm-6 mx-auto">
-      <div class ="content card-effect text-center">
-        <h4 class = "mt-2 mb-4">GitHubでも</h4>
-        <p>GitHubのアカウントでもログイン可能。</p>
-        <p>すぐに始められます。</p>
+        <div>
+          <%= link_to '#', data: { bs_toggle: "modal", bs_target: "#loginModal" } ,class: "text-decoration-none text-reset" do %>
+            <h4 class = "mt-2 mb-4">GitHubでも</h4>
+            <p>GitHubのアカウントでもログイン可能。</p>
+            <p>すぐに始められます。</p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -78,3 +90,7 @@
 <div class="container text-center mt-5 mb-5">
     <a id="back-to-top" href="#" class="btn btn-secondary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left">TOP</a>
 </div>
+
+<%= render 'home/modal_how_to_use' %>
+<%= render 'home/modal_time' %>
+<%= render 'home/modal_login' %>
