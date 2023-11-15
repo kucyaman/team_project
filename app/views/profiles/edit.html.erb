@@ -30,7 +30,11 @@
                   <td><%= f.text_field :introduction, class:"form-control mb-3" %></td>
                 </tr>
                 <tr>
-                  <th><%= f.label 'これまでの勉強時間' , class: "col-form-label"%><i class="bi bi-question-circle"></i></th>
+                  <th><%= f.label 'これまでの勉強時間' , class: "col-form-label"%>  
+                  <%= link_to '#', data: { bs_toggle: "modal", bs_target: "#exampleModal" } ,style: "color: gray;" do %>
+                    <i class="bi bi-question-circle"></i> 
+                  <% end %>
+                  </th>
                   <td>
                     <div style="display: inline-block;">
                       <%= f.text_field :hour, class: 'form-control' %></div>
@@ -53,3 +57,5 @@
     </div>
   </div>
 <div>
+
+<%= render 'profiles/modal' %>
