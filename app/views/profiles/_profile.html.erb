@@ -31,7 +31,12 @@
     <td><%= @profile.introduction %></td>
   </tr>
   <tr>
-  <th>これまでの勉強時間</th>
+  <th>
+  これまでの勉強時間
+  <%= link_to '#', data: { bs_toggle: "modal", bs_target: "#exampleModal" } ,style: "color: gray;" do %>
+    <i class="bi bi-question-circle"></i> 
+  <% end %>
+  </th>
   <td>
     <%= @profile.hour ||= 0 %>時間<%= @profile.minutes ||= 0 %>分
   </td>
@@ -41,3 +46,5 @@
 <div class='text-center mt-5'>
   <%= link_to '編集', edit_profile_path, class: 'btn btn-outline-secondary float-right m-3 btn-sm' %>
 </div>
+
+<%= render 'profiles/modal' %>
