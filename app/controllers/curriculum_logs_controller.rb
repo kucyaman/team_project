@@ -12,7 +12,8 @@ class CurriculumLogsController < ApplicationController
   # カリキュラムデータをcsv形式で出力する
   def csv_output
     @curriculum_logs = CurriculumLog.where(user_id: current_user.id).includes(:curriculum)
-    csv_data = CSV.generate do |csv|
+    bom = %w(EF BB BF).map { |e| e.hex.chr }.join
+    csv_data = CSV.generate(bom) do |csv|
       total_study_time = 0
       csv << ["課題名", "タイトル", "本文", "時間", "分"]
       @curriculum_logs.each do |log|
