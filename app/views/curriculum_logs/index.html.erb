@@ -29,5 +29,5 @@
   <%= render @curriculum_logs %>
   <%= paginate @curriculum_logs, theme: 'bootstrap-5' %>
 
-
+  <%= link_to 'ログ一覧をCSVでダウンロード', csv_output_curriculum_logs_path %>
 </div>

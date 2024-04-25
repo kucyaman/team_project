@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :curriculum_logs do
     collection do
       get 'search'
+      get 'csv_output'
     end
   end
   resources :password_resets, only: %i[new create edit update]

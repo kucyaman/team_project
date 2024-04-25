@@ -1,5 +1,6 @@
 class CurriculumLogsController < ApplicationController
   before_action :set_curriculum_log, only: %i[edit update destroy]
+  require 'csv'
 
   def index
     @q = CurriculumLog.includes(:curriculum)
@@ -8,6 +9,23 @@ class CurriculumLogsController < ApplicationController
     @curriculum_logs = @q.result.order(created_at: :desc).page(params[:page]).per(20)
   end
 
+  # カリキュラムデータをcsv形式で出力する
+  def csv_output
+    @curriculum_logs = CurriculumLog.where(user_id: current_user.id).includes(:curriculum)
+    bom = %w(EF BB BF).map { |e| e.hex.chr }.join
+    csv_data = CSV.generate(bom) do |csv|
+      total_study_time = 0
+      csv << ["課題名", "タイトル", "本文", "時間", "分"]
+      @curriculum_logs.each do |log|
+        csv << [log.curriculum.name, log.title, log.body, log.hour, log.minutes]
+        total_study_time += log.hour * 60 + log.minutes
+      end
+      csv << ["総勉強時間", "#{total_study_time / 60}時間#{total_study_time % 60}分"]
+    end
+    send_data(csv_data, filename: "curriculum_logs-#{Time.zone.now}.csv")
+  end
+
+  
   def new
     @curriculum_log = CurriculumLog.new
     @curriculums = Curriculum.all
